@@ -1,0 +1,122 @@
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background-color: #333; /* Dark background for navigation */
+    padding: 10px 0; /* Add padding above and below the navigation */
+}
+
+nav ul {
+    display: flex; /* Use flexbox for navigation */
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between navigation items */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin from last navigation item */
+}
+
+nav ul li a {
+    color: #fff; /* White color for navigation links */
+}
+
+main {
+    padding: 20px; /* Add padding for content */
+    max-width: 800px; /* Limit content width */
+    margin: 0 auto; /* Center content horizontally */
+}
+
+h1 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex; /* Use flexbox to place elements side by side */
+    flex-wrap: wrap; /* Allow items to wrap to a new line if there isn't enough space */
+}
+
+.home-text {
+    flex: 1; /* Let the text container take up as much space as possible */
+    padding-right: 20px; /* Add some spacing to the right of the text */
+}
+
+.home-image img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Limit the maximum height of the image */
+    margin-top: 20px; /* Add some space above the image */
+}
+
+.lucky-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px; /* Lägg till lite extra utrymme ovanför bilderna */
+}
+
+.lucky-image {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    transition: transform 0.3s ease; /* Lägg till en smidig övergångseffekt */
+}
+
+.lucky-image:hover {
+    transform: scale(1.1); /* Förstora bilden lite när den hovras över */
+}
+
+.lucky-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    border-radius: 10px; /* Runda hörnen på bilderna */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lägg till en subtil skugga under bilderna */
+}
+
+.lucky-image img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Öka skuggan när bilden hovras över */
+}
+
+.img-programming {
+    width: 500px; /* eller annan önskad bredd */
+    height: auto; /* För att bibehålla proportionerna */
+}
+
+.column {
+    width: 50%; /* Dela upp sidan i två kolumner */
+    float: left; /* Flytta kolumnerna bredvid varandra */
+    padding: 0 15px; /* Lägg till lite mellanrum mellan kolumnerna */
+    box-sizing: border-box; /* Inkludera padding i kolumnens bredd */
+}

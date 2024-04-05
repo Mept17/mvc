@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Om kursen mvc</h1>
+    <div class="content">
+        <div class="column">
+            <p>I denna kursen ska jag få lära mig att programmera webbapplikationer på ett objektorienterat sätt med fokus på designmönstret MVC. Ramverket som jag använder mig av i denna kursen är Symfony. Vi jobbar även med databaser och enhetstester.</p>
+        </div>
+        <div class="column">
+            <a href="https://github.com/dbwebb-se/mvc">Kursens GitHub-repo</a><br>
+            <a href="https://github.com/Mept17">Mitt GitHub-repot</a><br><br>
+            <img src="{{ asset('build/images/programming.jpg') }}" alt="" class="img-programming">
+        </div>
+    </div>
+{% endblock %}

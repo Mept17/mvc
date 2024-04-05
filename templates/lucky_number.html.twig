@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Magic number</h1>
+    <p>Welcome to a random number.</p>
+    <p>This is the current magic number: {{ number }}</p>
+    
+    <div class="lucky-image-container">
+        <div class="lucky-image">
+            <a href="{{ asset('img/numbers.png') }}">
+                <img src="{{ asset('img/numbers.png') }}" alt="">
+            </a>
+        </div>
+
+        <div class="lucky-image">
+            <a href="{{ asset('img/questionmark.jpg') }}">
+                <img src="{{ asset('img/questionmark.jpg') }}" alt="">
+            </a>
+        </div>
+    </div>
+{% endblock %}

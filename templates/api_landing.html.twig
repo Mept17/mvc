@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>API Landing Page</h1>
+    <p>Below are the available JSON routes:</p>
+    <ul>
+        {% for route, url in data.routes %}
+            <li><a href="{{ url }}">{{ route }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
