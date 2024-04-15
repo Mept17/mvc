@@ -25,7 +25,6 @@ class CardGameController extends AbstractController
     {
         $sessionData = $session->all();
 
-        // Filtrera bort objektet av typen App\Card\Deck från sessionen
         foreach ($sessionData as $key => $value) {
             if ($value instanceof Deck) {
                 unset($sessionData[$key]);
