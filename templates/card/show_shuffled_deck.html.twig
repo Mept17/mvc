@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Shuffled Deck{% endblock %}
+
+{% block body %}
+<h1>Shuffled Deck</h1>
+
+<div class="card-container">
+    {# Loopa igenom de blandade korten #}
+    {% for card in shuffled_deck %}
+        <div class="card">
+            <p class="card-value">{% if card.getValue() == 'Ace' %}A{% elseif card.getValue() == 'King' %}K{% elseif card.getValue() == 'Queen' %}Q{% elseif card.getValue() == 'Jack' %}J{% else %}{{ card.getValue() }}{% endif %}</p>
+            <p class="card-suit">{% if card.getSuit() == 'Hearts' %}&hearts;{% elseif card.getSuit() == 'Diamonds' %}&diams;{% elseif card.getSuit() == 'Clubs' %}&clubs;{% elseif card.getSuit() == 'Spades' %}&spades;{% endif %}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

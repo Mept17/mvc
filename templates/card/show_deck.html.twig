@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Deck{% endblock %}
+
+{% block body %}
+<h1>Card Deck</h1>
+
+<div class="card-container">
+    {# Loopa igenom korten i den sorterade ordningen #}
+    {% for card in sorted_deck %}
+        <div class="card">
+            {# Visa kortets värde och symbol med UTF-8-tecken #}
+            <p>{% if card.getValue() == 'Ace' %}A{% elseif card.getValue() == 'King' %}K{% elseif card.getValue() == 'Queen' %}Q{% elseif card.getValue() == 'Jack' %}J{% else %}{{ card.getValue() }}{% endif %} 
+            {% if card.getSuit() == 'Hearts' %}&hearts;{% elseif card.getSuit() == 'Diamonds' %}&diams;{% elseif card.getSuit() == 'Clubs' %}&clubs;{% elseif card.getSuit() == 'Spades' %}&spades;{% endif %}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

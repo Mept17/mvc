@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session Contents{% endblock %}
+
+{% block body %}
+    <h1>Session Contents</h1>
+
+    <table>
+        <tr>
+            <th>Suit /</th>
+            <th>Value</th>
+        </tr>
+        {% for key, value in sessionData %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>
+                    {% if value is iterable %}
+                        {% for item in value %}
+                            {{ item }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

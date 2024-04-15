@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<h1>Card Game</h1>
+{% include 'flash.html.twig' %}
+
+<ul>
+    <li><a href="{{ path('show_session') }}">Show Session</a></li>
+    <li><a href="{{ path('delete_session') }}">Delete Session</a></li>
+    <li><a href="{{ path('show_deck') }}">Show Deck</a></li>
+    <li><a href="{{ path('shuffle_deck') }}">Shuffle Deck</a></li>
+    <li><a href="{{ path('draw_card') }}">Draw a Card</a></li>
+    <li><a href="{{ path('draw_cards', {'number': 5}) }}">Draw 5 Cards</a></li>
+</ul><br>
+
+<div class="uml-image">
+    <img src="{{ asset('img/uml.png') }}" alt="uml bild">
+</div>
+
+<p>Den här applikationen använder klasserna Card och Deck för att hantera kortspel.</p>
+<p>Card klassen representerar ett enskilt kort i en kortlek. Attributen den har är "suit" och "value". De beskriver färgen/mönstret och värdet på kortet. Metoderna klassen har är "getSuit()" och "getValue()" som hämtar sviten och värdet på kortet.</p>
+<p>Deck klassen representerar en kortlek som innehåller flera kort. Attributet klassen har är cards. Den har flera metoder för att kunna hantera kortleken, inklusive skapande av ny. Den kan även blandas, hämta alla kort och dra specifikt kort.</p>
+
+
+{% endblock %}

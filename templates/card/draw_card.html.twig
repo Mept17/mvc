@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Drawn Card{% endblock %}
+
+{% block body %}
+<h1>Drawn Card</h1>
+
+<div class="card-container">
+    <div class="card">
+        {# Visa kortets värde och symbol med UTF-8-tecken #}
+        <p>{% if drawn_card.getValue() == 'Ace' %}A{% elseif drawn_card.getValue() == 'King' %}K{% elseif drawn_card.getValue() == 'Queen' %}Q{% elseif drawn_card.getValue() == 'Jack' %}J{% else %}{{ drawn_card.getValue() }}{% endif %} 
+        {% if drawn_card.getSuit() == 'Hearts' %}&hearts;{% elseif drawn_card.getSuit() == 'Diamonds' %}&diams;{% elseif drawn_card.getSuit() == 'Clubs' %}&clubs;{% elseif drawn_card.getSuit() == 'Spades' %}&spades;{% endif %}</p>
+    </div>
+</div>
+
+<p>Remaining Cards: {{ remaining_cards }}</p>
+{% endblock %}
