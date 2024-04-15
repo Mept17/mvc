@@ -117,13 +117,6 @@ class DiceGameController extends AbstractController
         return $this->redirectToRoute('pig_play');
     }
 
-    // #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
-    // public function play(): Response
-    // {
-    //     // Logic to play the game
-
-    //     return $this->render('pig/play.html.twig');
-    // }
     #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
     public function play(
         SessionInterface $session
