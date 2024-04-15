@@ -89,13 +89,6 @@ class DiceGameController extends AbstractController
         return $this->render('pig/init.html.twig');
     }
 
-    // #[Route("/game/pig/init", name: "pig_init_post", methods: ['POST'])]
-    // public function initCallback(): Response
-    // {
-    //     // Deal with the submitted form
-
-    //     return $this->redirectToRoute('pig_play');
-    // }
     #[Route("/game/pig/init", name: "pig_init_post", methods: ['POST'])]
     public function initCallback(
         Request $request,
