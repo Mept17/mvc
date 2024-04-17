@@ -11,7 +11,7 @@ class Deck
         $this->cards = $cards;
     }
 
-    public static function createDeck(): Deck
+    public static function createDeck(string $cardType): Deck
     {
         $values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
         $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
@@ -19,7 +19,12 @@ class Deck
 
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-                $cards[] = new Card($suit, $value);
+                if ($cardType === 'Card') {
+                    $cards[] = new Card($suit, $value);
+                } elseif ($cardType === 'CardGraphic') {
+                    $graphic = '';
+                    $cards[] = new CardGraphic($suit, $value, $graphic);
+                }
             }
         }
 

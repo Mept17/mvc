@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Card\Deck;
 use App\Card\Card;
+use App\Card\DeckOfCards;
+use App\Card\CardGraphic;
 
 
 use Symfony\Component\HttpFoundation\Request;
@@ -50,7 +52,7 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck || !$deck->isSorted()) {
-            $deck = Deck::createDeck();
+            $deck = Deck::createDeck('Card');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }
@@ -63,7 +65,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/shuffle", name: "shuffle_deck")]
     public function shuffleDeck(SessionInterface $session): Response
     {
-        $deck = Deck::createDeck();
+        $deck = Deck::createDeck('Card');
         $deck->shuffle();
         $session->set('deck', $deck);
         return $this->redirectToRoute('show_shuffled_deck');
@@ -84,14 +86,13 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck) {
-            $deck = Deck::createDeck();
+            $deck = Deck::createDeck('Card');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }
 
         $remainingCardsCount = count($deck->getAllCards());
         if ($remainingCardsCount == 0) {
-            // Om kortleken är tom, omdirigera till en annan sida eller hantera detta scenario på lämpligt sätt
             return $this->render('card/no_cards_left.html.twig', [
                 'remaining_cards' => $remainingCardsCount
             ]);
@@ -114,7 +115,7 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck) {
-            $deck = Deck::createDeck();
+            $deck = Deck::createDeck('Card');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }
@@ -122,7 +123,6 @@ class CardGameController extends AbstractController
         $remainingCardsCount = count($deck->getAllCards());
 
         if ($number > $remainingCardsCount) {
-            // Om det inte finns tillräckligt med kort, returnera meddelande till användaren eller begränsa antalet kort som dras
             return $this->render('card/not_enough_cards.html.twig', [
                 'remaining_cards' => $remainingCardsCount,
                 'number' => $number
