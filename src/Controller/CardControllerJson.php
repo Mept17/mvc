@@ -17,7 +17,7 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck", name: "api_deck_get", methods: ['GET'])]
     public function getDeck(): JsonResponse
     {
-        $deck = Deck::createDeck();
+        $deck = Deck::createDeck('Card');
 
         $deck->sortDeck();
 
@@ -32,7 +32,7 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle", methods: ['GET', 'POST'])]
     public function shuffleDeck(SessionInterface $session): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDeck());
+        $deck = $session->get('deck', Deck::createDeck('Card'));
 
         $deck->shuffle();
 
@@ -49,7 +49,8 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/draw", name: "api_deck_draw", methods: ['GET', 'POST'])]
     public function drawCard(SessionInterface $session): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDeck());
+        $deck = $session->get('deck', Deck::createDrawFromDeck('Card'));
+        $deck->shuffle();
 
         $drawnCard = $deck->drawSpecificCard(0);
 
@@ -66,18 +67,22 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/draw/{number}", name: "api_deck_draw_multiple", methods: ['GET', 'POST'])]
     public function drawMultipleCards(SessionInterface $session, $number): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDeck());
+        $deck = $session->get('deck', Deck::createDrawFromDeck('Card'));
+        $deck->shuffle();
 
         $drawnCards = [];
         for ($i = 0; $i < $number; $i++) {
-            $drawnCards[] = $deck->drawSpecificCard(0);
+            $drawnCard = $deck->drawSpecificCard(0);
+            if ($drawnCard !== null) {
+                $drawnCards[] = $drawnCard;
+            }
         }
 
         $session->set('deck', $deck);
 
         $formattedDrawnCards = [];
         foreach ($drawnCards as $card) {
-            $formattedDrawnCards[] = $card ? $card->getSuit() . ' ' . $card->getValue() : null;
+            $formattedDrawnCards[] = $card->getSuit() . ' ' . $card->getValue();
         }
 
         return $this->json([

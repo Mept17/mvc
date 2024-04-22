@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Card\Deck;
 use App\Card\Card;
-use App\Card\DeckOfCards;
 use App\Card\CardGraphic;
 
 
@@ -52,7 +51,7 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck || !$deck->isSorted()) {
-            $deck = Deck::createDeck('Card');
+            $deck = Deck::createDeck('CardGraphic');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }
@@ -65,7 +64,7 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/shuffle", name: "shuffle_deck")]
     public function shuffleDeck(SessionInterface $session): Response
     {
-        $deck = Deck::createDeck('Card');
+        $deck = Deck::createDeck('CardGraphic');
         $deck->shuffle();
         $session->set('deck', $deck);
         return $this->redirectToRoute('show_shuffled_deck');
@@ -86,7 +85,7 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck) {
-            $deck = Deck::createDeck('Card');
+            $deck = Deck::createDeck('CardGraphic');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }
@@ -115,7 +114,7 @@ class CardGameController extends AbstractController
         $deck = $session->get('deck');
 
         if (!$deck instanceof Deck) {
-            $deck = Deck::createDeck('Card');
+            $deck = Deck::createDeck('CardGraphic');
             $deck->sortDeck();
             $session->set('deck', $deck);
         }

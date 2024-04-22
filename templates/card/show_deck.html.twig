@@ -9,9 +9,8 @@
     {# Loopa igenom korten i den sorterade ordningen #}
     {% for card in sorted_deck %}
         <div class="card">
-            {# Visa kortets värde och symbol med UTF-8-tecken #}
-            <p>{% if card.getValue() == 'Ace' %}A{% elseif card.getValue() == 'King' %}K{% elseif card.getValue() == 'Queen' %}Q{% elseif card.getValue() == 'Jack' %}J{% else %}{{ card.getValue() }}{% endif %} 
-            {% if card.getSuit() == 'Hearts' %}&hearts;{% elseif card.getSuit() == 'Diamonds' %}&diams;{% elseif card.getSuit() == 'Clubs' %}&clubs;{% elseif card.getSuit() == 'Spades' %}&spades;{% endif %}</p>
+            {# Visa kortets grafiska representation #}
+            <p>{{ card.getGraphic() }}</p>
         </div>
     {% endfor %}
 </div>
