@@ -8,7 +8,7 @@
 <div class="card-container">
     {# Loopa igenom korten i den sorterade ordningen #}
     {% for card in sorted_deck %}
-        <div class="card">
+        <div class="card" style="color: {{ card.getSuitColor() }};">
             {# Visa kortets grafiska representation #}
             <p>{{ card.getGraphic() }}</p>
         </div>

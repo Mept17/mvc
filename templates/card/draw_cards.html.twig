@@ -8,7 +8,7 @@
 <div class="card-container">
     {% for card in drawn_cards %}
         {% if card is not null %}
-            <div class="card">
+            <div class="card" style="color: {{ card.getSuitColor() }};">
                 {# Visa kortets grafiska representation #}
                 <p>{{ card.getGraphic() }}</p>
             </div>

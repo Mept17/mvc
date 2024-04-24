@@ -24,12 +24,14 @@ class CardGameController extends AbstractController
     #[Route("/session", name: "show_session")]
     public function showSession(SessionInterface $session): Response
     {
-        $sessionData = $session->all();
+        $deck = $session->get('deck');
 
-        foreach ($sessionData as $key => $value) {
-            if ($value instanceof Deck) {
-                unset($sessionData[$key]);
-            }
+        dump($deck);
+
+        $sessionData = [];
+
+        if ($deck instanceof Deck) {
+            $sessionData['deck'] = $deck;
         }
 
         return $this->render('card/show_session.html.twig', [

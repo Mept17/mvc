@@ -7,22 +7,20 @@
 
     <table>
         <tr>
-            <th>Suit /</th>
+            <th>Suit</th>
             <th>Value</th>
         </tr>
-        {% for key, value in sessionData %}
+        {% if sessionData.deck is defined %}
+            {% for card in sessionData.deck.getAllCards() %}
+                <tr>
+                    <td>{{ card.getSuit() }}</td>
+                    <td>{{ card.getValue() }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
             <tr>
-                <td>{{ key }}</td>
-                <td>
-                    {% if value is iterable %}
-                        {% for item in value %}
-                            {{ item }}{% if not loop.last %}, {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        {{ value }}
-                    {% endif %}
-                </td>
+                <td colspan="2">Session is empty</td>
             </tr>
-        {% endfor %}
+        {% endif %}
     </table>
 {% endblock %}

@@ -20,4 +20,9 @@ class CardGraphic extends Card
     {
         return $this->representation[$this->getSuit()][$this->getValue()];
     }
+
+    public function getSuitColor(): string
+    {
+        return ($this->getSuit() === 'Hearts' || $this->getSuit() === 'Diamonds') ? 'red' : 'black';
+    }
 }
