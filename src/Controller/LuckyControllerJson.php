@@ -18,7 +18,7 @@ class LuckyControllerJson extends AbstractController
             'lucky-number' => $number,
             'lucky-message' => 'Hi there!',
         ];
-        // return new JsonResponse(
+        // return new JsonRespons
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
