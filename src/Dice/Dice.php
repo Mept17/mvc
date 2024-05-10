@@ -4,11 +4,14 @@ namespace App\Dice;
 
 class Dice
 {
+    /**
+     * @var int
+     */
     protected $value;
 
     public function __construct()
     {
-        $this->value = null;
+        $this->value = 0;
     }
 
     public function roll(): int

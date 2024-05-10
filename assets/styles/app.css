@@ -167,3 +167,69 @@ ul.dicearea li {
 .card {
     font-size: 8em;
 }
+
+/* kmom03 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styla spellänkar */
+.game-links {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.game-links a {
+    margin: 10px;
+}
+
+/* Styla spellistan */
+.game-rules {
+    margin-bottom: 40px;
+}
+
+.game-rules ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.game-rules li {
+    margin-bottom: 10px;
+}
+
+/* Styla kort */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    font-size: 3em; /* Förstora kortens storlek */
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}

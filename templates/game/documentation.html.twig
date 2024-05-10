@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dokumentation{% endblock %}
+
+{% block body %}
+<h1>Dokumentation</h1>
+
+<h2>Flödesschema</h2>
+<img src="{{ asset('img/flodesschema.png') }}" alt="">
+
+<h2>Pseudokod</h2>
+<img src="{{ asset('img/pseudokod1.png') }}" alt=""><img src="{{ asset('img/pseudokod2.png') }}" alt="">
+
+<h2>Klass Beskrivning</h2>
+<ul>
+    <li><strong>Card (finns sedan innan):</strong> Representerar spelkort med deras värde och deras "suit". Alltså hjärter, ruter, spader, klöver.</li>
+    <li><strong>Deck (finns sedan innan):</strong> Hanterar en kortlek genom att skapa den och blanda korten.</li>
+    <li><strong>Game:</strong> Sköter själva spelet genom att starta, hantera drag och avgöra vem vinnaren är. Sköter även bankens funktioner osv.</li>
+    <li><strong>Player:</strong> Tar hand och representerar spelarens hand, poäng osv.</li>
+
+</ul>
+{% endblock %}

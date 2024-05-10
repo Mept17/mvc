@@ -3,13 +3,20 @@
 namespace App\Card;
 
 use App\Card\Card;
+use App\Card\CardGraphic;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class Deck
 {
+    /**
+     * @var array<Card>
+     */
     private array $cards;
 
+    /**
+     * @param array<Card|CardGraphic> $cards An array containing objects of type Card or CardGraphic.
+     */
     public function __construct(array $cards)
     {
         $this->cards = $cards;
@@ -26,9 +33,7 @@ class Deck
                 if ($cardType === 'Card') {
                     $cards[] = new Card($suit, $value);
                 } elseif ($cardType === 'CardGraphic') {
-                    $cardGraphic = new CardGraphic($suit, $value);
-                    $graphic = $cardGraphic->getGraphic();
-                    $cards[] = new CardGraphic($suit, $value, $graphic);
+                    $cards[] = new CardGraphic($suit, $value);
                 }
             }
         }
@@ -46,6 +51,9 @@ class Deck
         shuffle($this->cards);
     }
 
+    /**
+     * @return array<Card|CardGraphic>
+     */
     public function getAllCards(): array
     {
         return $this->cards;

@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21 Game{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>21 Game</h1>
+
+    <p>Player Score: {{ playerScore }}</p>
+    <p>Bank Score: {{ bankScore }}</p>
+
+    <form action="{{ path('player_draw') }}" method="post">
+        <button type="submit" class="btn">Player Draw Card</button>
+    </form>
+
+    {% if not playerDrawn %}
+        <p>Draw cards until you are happy with your score. Bank draws after you.</p>
+    {% else %}
+        <form action="{{ path('bank_draw') }}" method="post">
+            <button type="submit" class="btn">Bank Draw Card</button>
+        </form>
+    {% endif %}
+
+    <div class="card-container">
+        {% if playerScore > 0 %}
+            <p>Player's Cards:</p>
+            {% for card in playerCards %}
+                <span class="card" style="color:{{ card.getSuitColor() }}">{{ card.getGraphic() }}</span>
+            {% endfor %}
+        {% endif %}
+
+        {% if bankScore > 0 %}
+            <p>Bank's Cards:</p>
+            {% for card in bankCards %}
+                <span class="card" style="color:{{ card.getSuitColor() }}">{{ card.getGraphic() }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% if gameOver %}
+        <p>
+            {% if winner == 'Player' %}
+                Player Wins!
+            {% elseif winner == 'Bank' %}
+                Bank Wins!
+            {% else %}
+                It's a Draw!
+            {% endif %}
+        </p>
+        <a href="{{ path('reset_game') }}" class="btn">Start a New Game</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -15,9 +15,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class CardControllerJson extends AbstractController
 {
     #[Route("/api/deck", name: "api_deck_get", methods: ['GET'])]
-    public function getDeck(): JsonResponse
+    public function getDeck(SessionInterface $session): JsonResponse
     {
-        $deck = Deck::createDeck('Card');
+        $deck = $session->get('deck');
+
+        if (!$deck instanceof Deck) {
+            $deck = Deck::createDeck('Card');
+            $session->set('deck', $deck);
+        }
 
         $deck->sortDeck();
 
@@ -32,7 +37,12 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle", methods: ['GET', 'POST'])]
     public function shuffleDeck(SessionInterface $session): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDeck('Card'));
+        $deck = $session->get('deck');
+
+        if (!$deck instanceof Deck) {
+            $deck = Deck::createDeck('Card');
+            $session->set('deck', $deck);
+        }
 
         $deck->shuffle();
 
@@ -49,8 +59,12 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/draw", name: "api_deck_draw", methods: ['GET', 'POST'])]
     public function drawCard(SessionInterface $session): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDrawFromDeck('Card'));
-        $deck->shuffle();
+        $deck = $session->get('deck');
+
+        if (!$deck instanceof Deck) {
+            $deck = Deck::createDeck('Card');
+            $session->set('deck', $deck);
+        }
 
         $drawnCard = $deck->drawSpecificCard(0);
 
@@ -65,10 +79,14 @@ class CardControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw/{number}", name: "api_deck_draw_multiple", methods: ['GET', 'POST'])]
-    public function drawMultipleCards(SessionInterface $session, $number): JsonResponse
+    public function drawMultipleCards(SessionInterface $session, int $number): JsonResponse
     {
-        $deck = $session->get('deck', Deck::createDrawFromDeck('Card'));
-        $deck->shuffle();
+        $deck = $session->get('deck');
+
+        if (!$deck instanceof Deck) {
+            $deck = Deck::createDeck('Card');
+            $session->set('deck', $deck);
+        }
 
         $drawnCards = [];
         for ($i = 0; $i < $number; $i++) {

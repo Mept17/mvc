@@ -76,6 +76,13 @@ class CardGameController extends AbstractController
     public function showShuffledDeck(SessionInterface $session): Response
     {
         $deck = $session->get('deck');
+
+        if (!$deck instanceof Deck) {
+            return $this->render('error.html.twig', [
+                'message' => 'The deck is not available or is not of the correct type.'
+            ]);
+        }
+
         return $this->render('card/show_shuffled_deck.html.twig', [
             'shuffled_deck' => $deck->getAllCards()
         ]);
@@ -99,7 +106,8 @@ class CardGameController extends AbstractController
             ]);
         }
 
-        $drawnIndex = array_rand($deck->getAllCards(), 1);
+        $allCardIndexes = array_keys($deck->getAllCards());
+        $drawnIndex = $allCardIndexes[array_rand($allCardIndexes)];
         $drawnCard = $deck->drawSpecificCard($drawnIndex);
 
         $session->set('deck', $deck);
@@ -109,6 +117,7 @@ class CardGameController extends AbstractController
             'remaining_cards' => count($deck->getAllCards())
         ]);
     }
+
 
     #[Route("/card/deck/draw/{number}", name: "draw_cards")]
     public function drawCards(int $number, SessionInterface $session): Response
@@ -130,12 +139,14 @@ class CardGameController extends AbstractController
             ]);
         }
 
+        $allCardIndexes = array_keys($deck->getAllCards());
         $drawnCards = [];
         for ($i = 0; $i < $number; $i++) {
-            $drawnIndex = array_rand($deck->getAllCards(), 1);
+            $drawnIndex = $allCardIndexes[array_rand($allCardIndexes)];
             $drawnCard = $deck->drawSpecificCard($drawnIndex);
             if ($drawnCard) {
                 $drawnCards[] = $drawnCard;
+                unset($allCardIndexes[array_search($drawnIndex, $allCardIndexes)]);
             }
         }
 

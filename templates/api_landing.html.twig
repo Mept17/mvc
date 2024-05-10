@@ -13,6 +13,7 @@
         <li><a href="{{ path('api_deck_get') }}">Card deck sorted</a> - Returns a JSON structure with the entire deck sorted by color and value.</li>
         <li><a href="{{ path('api_deck_shuffle') }}">Card deck shuffled</a> - Shuffles the deck and returns a JSON structure with the shuffled deck.</li>
         <li><a href="{{ path('api_deck_draw') }}">Draw one card</a> - Draws 1 card from the deck and shows it in a JSON structure.</li>
-        <li><a href="{{ path('api_deck_draw_multiple', {'number': 5}) }}">Draw 5 cards</a> - Draws 5 cards from the deck and shows them in a JSON structure.</li>
+        <li><a href="{{ path('api_deck_draw_multiple', {'number': 5}) }}">Draw 5 cards</a> - Draws 5 cards from the deck and shows them in a JSON structure.</li><br>
+        <li><a href="{{ path('api_game_status') }}">Game Status</a> - Check latest game status.</li>
     </ul>
 {% endblock %}

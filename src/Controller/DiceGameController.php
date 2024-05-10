@@ -116,6 +116,11 @@ class DiceGameController extends AbstractController
     ): Response {
         $dicehand = $session->get("pig_dicehand");
 
+        if (!$dicehand instanceof DiceHand) {
+            $dicehand = new DiceHand();
+            $session->set("pig_dicehand", $dicehand);
+        }
+
         $data = [
             "pigDices" => $session->get("pig_dices"),
             "pigRound" => $session->get("pig_round"),
@@ -131,25 +136,28 @@ class DiceGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $hand = $session->get("pig_dicehand");
-        $hand->roll();
 
-        $roundTotal = $session->get("pig_round");
-        $round = 0;
-        $values = $hand->getValues();
-        foreach ($values as $value) {
-            if ($value === 1) {
-                $round = 0;
-                $roundTotal = 0;
-                $this->addFlash(
-                    'warning',
-                    'You got a 1 and you lost the round points!'
-                );
-                break;
+        if ($hand instanceof DiceHand) {
+            $hand->roll();
+
+            $roundTotal = $session->get("pig_round");
+            $round = 0;
+            $values = $hand->getValues();
+            foreach ($values as $value) {
+                if ($value === 1) {
+                    $round = 0;
+                    $roundTotal = 0;
+                    $this->addFlash(
+                        'warning',
+                        'You got a 1 and you lost the round points!'
+                    );
+                    break;
+                }
+                $round += $value;
             }
-            $round += $value;
-        }
 
-        $session->set("pig_round", $roundTotal + $round);
+            $session->set("pig_round", $roundTotal + $round);
+        }
 
         return $this->redirectToRoute('pig_play');
     }

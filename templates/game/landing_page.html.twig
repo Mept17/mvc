@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Welcome to 21 Game{% endblock %}
+
+{% block body %}
+<h1>Welcome to 21 Game</h1>
+<p>21 is a card game where the goal is to get as close to 21 without going over.</p>
+<ul>
+    <li>Rules:</li>
+    <li>Draw cards until you are happy with your score. Bank draws after you. When you click on the bank to draw you can´t draw more cards to yourself.</li>
+    <li>If a player's total exceeds 21, they lose.</li>
+    <li>The bank plays after the player and follows simple rules (always draw until 17 or more).</li>
+    <li>The player with a total closest to 21 without exceeding it wins. If it´s a draw the bank wins.</li>
+    <li>Good luck and play safe :)</li>
+</ul>
+<br><a href="{{ path('start_game') }}" class="btn btn-primary">Start Game</a>
+<br><a href="{{ path('game_documentation') }}" class="btn btn-primary">Documentation</a>
+{% endblock %}
