@@ -19,7 +19,7 @@ class Game
 
     /**
      * Constructs a new Game instance.
-     * 
+     *
      * @param Deck $deck The deck of cards to be used in the game.
      */
     public function __construct(Deck $deck)
@@ -33,7 +33,7 @@ class Game
 
     /**
      * Gets the current score of the player.
-     * 
+     *
      * @return int The player's score.
      */
     public function getPlayerScore(): int
@@ -43,7 +43,7 @@ class Game
 
     /**
      * Gets the current score of the bank.
-     * 
+     *
      * @return int The bank's score.
      */
     public function getBankScore(): int
@@ -53,7 +53,7 @@ class Game
 
     /**
      * Checks if the game is over.
-     * 
+     *
      * @return bool True if the game is over, otherwise false.
      */
     public function isGameOver(): bool
@@ -104,9 +104,9 @@ class Game
 
     /**
      * Calculates the value of a card.
-     * 
+     *
      * @param \App\Card\Card $card The card to calculate the value for.
-     * 
+     *
      * @return int The value of the card.
      */
     public function calculateCardValue(\App\Card\Card $card): int
@@ -138,7 +138,7 @@ class Game
 
     /**
      * Determines the winner of the game.
-     * 
+     *
      * @return string The winner of the game ('Player' or 'Bank').
      */
     public function determineWinner(): string
@@ -160,7 +160,7 @@ class Game
 
     /**
      * Gets the cards held by the player.
-     * 
+     *
      * @return \App\Card\Card[] An array of cards held by the player.
      */
     public function getPlayerCards(): array
@@ -170,7 +170,7 @@ class Game
 
     /**
      * Gets the cards held by the bank.
-     * 
+     *
      * @return \App\Card\Card[] An array of cards held by the bank.
      */
     public function getBankCards(): array
@@ -180,7 +180,7 @@ class Game
 
     /**
      * Gets the player instance.
-     * 
+     *
      * @return Player The player instance.
      */
     public function getPlayer(): Player
@@ -190,7 +190,7 @@ class Game
 
     /**
      * Checks if the player has drawn a card.
-     * 
+     *
      * @return bool True if the player has drawn a card, otherwise false.
      */
     public function isPlayerDrawn(): bool
@@ -200,7 +200,7 @@ class Game
 
     /**
      * Gets the bank instance.
-     * 
+     *
      * @return Player The bank instance.
      */
     public function getBank(): Player
