@@ -139,4 +139,9 @@ class Game
     {
         return $this->playerDrawn;
     }
+
+    public function getBank(): Player
+    {
+        return $this->bank;
+    }
 }
