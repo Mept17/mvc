@@ -125,7 +125,7 @@ class ProductController extends AbstractController
         ProductRepository $productRepository,
         int $value
     ): Response {
-        $products = $productRepository->findByMinimumValue($value);
+        $products = $productRepository->findBy(['value' => $value]);
 
         $data = [
             'products' => $products

@@ -16,28 +16,29 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    /**
-     * Find all producs having a value above the specified one.
-     * 
-     * @return Product[] Returns an array of Product objects
-     */
-    public function findByMinimumValue($value): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.value >= :value')
-            ->setParameter('value', $value)
-            ->orderBy('p.value', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    // /**
+    //  * Find all products having a value above the specified one.
+    //  *
+    //  * @param int $value
+    //  * @return array<Product> Returns an array of Product objects
+    //  */
+    // public function findByMinimumValue(int $value): array
+    // {
+    //     return $this->createQueryBuilder('p')
+    //         ->andWhere('p.value >= :value')
+    //         ->setParameter('value', $value)
+    //         ->orderBy('p.value', 'ASC')
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
     /**
-     * Find all producs having a value above the specified one with SQL.
-     * 
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
+     * Find all products having a value above the specified one with SQL.
+     *
+     * @param int $value
+     * @return array<mixed> Returns an array of arrays (i.e. a raw data set)
      */
-    public function findByMinimumValue2($value): array
+    public function findByMinimumValue2(int $value): array
     {
         $conn = $this->getEntityManager()->getConnection();
 

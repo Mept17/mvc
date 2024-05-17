@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookControllerJson extends AbstractController
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager; // Typen EntityManagerInterface anges här
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -40,7 +40,7 @@ class BookControllerJson extends AbstractController
     }
 
     #[Route("/api/library/book/{isbn}", name: "api_library_book")]
-    public function apiLibraryBook($isbn): JsonResponse
+    public function apiLibraryBook(string $isbn): JsonResponse // Typen string anges här
     {
         $book = $this->entityManager->getRepository(Book::class)->findOneBy(['isbn' => $isbn]);
 

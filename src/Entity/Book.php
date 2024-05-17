@@ -86,7 +86,7 @@ class Book
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
-    
+
         if ($imageFile) {
             $this->updatedAt = new \DateTimeImmutable();
             $this->image = $imageFile->getFilename();
