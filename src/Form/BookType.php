@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Book;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,10 @@ class BookType extends AbstractType
             ->add('title')
             ->add('isbn')
             ->add('author')
-            ->add('image')
+            ->add('imageFile', FileType::class, [
+                'required' => false,
+                'label' => 'Book Image',
+            ])
         ;
     }
 

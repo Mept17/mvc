@@ -23,7 +23,7 @@
                 <td>{{ book.title }}</td>
                 <td>{{ book.isbn }}</td>
                 <td>{{ book.author }}</td>
-                <td><img src="{{ book.image }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
+                <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
                 <td>
                     <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
                     <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>

@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td><img src="{{ book.image }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
+                <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
             </tr>
         </tbody>
     </table>

@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Book{% endblock %}
-
 {% block body %}
     <h1>Create new Book</h1>
 
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
         {{ form_widget(form) }}
         <button class="btn">Save</button>
     {{ form_end(form) }}
 
-    <a href="{{ path('book_index') }}">Back to list</a>
+    <a href="{{ path('book_index') }}">back to list</a>
 {% endblock %}
