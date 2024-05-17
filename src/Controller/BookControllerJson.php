@@ -30,7 +30,7 @@ class BookControllerJson extends AbstractController
                 'title' => $book->getTitle(),
                 'isbn' => $book->getIsbn(),
                 'author' => $book->getAuthor(),
-                'image' => $book->getImage(), // Justera detta till rätt väg om nödvändigt
+                'image' => $book->getImage(),
             ];
         }
 
