@@ -89,7 +89,7 @@ class Book
     
         if ($imageFile) {
             $this->updatedAt = new \DateTimeImmutable();
-            $this->image = $imageFile->getFilename(); // eller använd $imageFile->getClientOriginalName() beroende på vad du behöver
+            $this->image = $imageFile->getFilename();
         }
     }
 
