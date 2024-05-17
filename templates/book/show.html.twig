@@ -3,36 +3,37 @@
 {% block title %}Book{% endblock %}
 
 {% block body %}
-    <h1>Book</h1>
+    <div class="container">
+        <h1>Book</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ book.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ book.title }}</td>
-            </tr>
-            <tr>
-                <th>Isbn</th>
-                <td>{{ book.isbn }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ book.author }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ book.id }}</td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td>{{ book.title }}</td>
+                </tr>
+                <tr>
+                    <th>Isbn</th>
+                    <td>{{ book.isbn }}</td>
+                </tr>
+                <tr>
+                    <th>Author</th>
+                    <td>{{ book.author }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" class="img-thumbnail" style="max-width: 100px;"/></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('book_index') }}">Back to list</a>
+        <a href="{{ path('book_index') }}" class="btn btn-secondary">Back to list</a>
+        <a href="{{ path('book_edit', {'id': book.id}) }}" class="btn btn-primary">Edit</a>
 
-    <a href="{{ path('book_edit', {'id': book.id}) }}">Edit</a>
-
-    {{ include('book/_delete_form.html.twig') }}
+        {{ include('book/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

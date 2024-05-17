@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Edit Book</h1>
+    <div class="container">
+        <h1>Edit Book</h1>
 
-    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-        {{ form_widget(form) }}
-        <button class="btn">Save</button>
-    {{ form_end(form) }}
+        <form action="{{ path('book_edit', {'id': book.id}) }}" method="post" enctype="multipart/form-data">
+            {{ form_widget(form) }}
+            <button class="btn">Save</button>
+        </form>
 
-    <a href="{{ path('book_index') }}">back to list</a>
+        <a href="{{ path('book_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+    </div>
 {% endblock %}

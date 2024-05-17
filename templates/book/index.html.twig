@@ -3,36 +3,38 @@
 {% block title %}Book index{% endblock %}
 
 {% block body %}
-    <h1>Book index</h1>
+    <div class="container">
+        <h1>Book index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Isbn</th>
-                <th>Author</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.isbn }}</td>
-                <td>{{ book.author }}</td>
-                <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" style="max-width: 100px;"/></td>
-                <td>
-                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
-                    {{ include('book/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Isbn</th>
+                    <th>Author</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.author }}</td>
+                    <td><img src="{{ asset('uploads/book_images/' ~ book.image) }}" alt="{{ book.title }}" class="img-thumbnail" style="max-width: 100px;"/></td>
+                    <td>
+                        <a href="{{ path('book_show', {'id': book.id}) }}" class="btn btn-info">show</a>
+                        <a href="{{ path('book_edit', {'id': book.id}) }}" class="btn btn-primary">edit</a>
+                        {{ include('book/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('book_new') }}">Create new</a>
+        <a href="{{ path('book_new') }}" class="btn btn-success">Create new</a>
+    </div>
 {% endblock %}
