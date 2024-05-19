@@ -1,91 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1716140230">
-  <project timestamp="1716140230">
+<coverage generated="1716156628">
+  <project timestamp="1716156628">
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="18"/>
-      <line num="12" type="stmt" count="18"/>
-      <line num="13" type="stmt" count="18"/>
-      <line num="16" type="method" name="getSuit" visibility="public" complexity="1" crap="1" count="9"/>
-      <line num="18" type="stmt" count="9"/>
-      <line num="21" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="10"/>
-      <line num="23" type="stmt" count="10"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="20"/>
+      <line num="12" type="stmt" count="20"/>
+      <line num="13" type="stmt" count="20"/>
+      <line num="16" type="method" name="getSuit" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="18" type="stmt" count="11"/>
+      <line num="21" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="23" type="stmt" count="11"/>
       <metrics loc="26" ncloc="26" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
     </file>
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Card/CardGraphic.php">
       <class name="App\Card\CardGraphic" namespace="global">
-        <metrics complexity="5" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="1" elements="6" coveredelements="2"/>
+        <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
       </class>
-      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="19" type="stmt" count="8"/>
-      <line num="22" type="method" name="getGraphic" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="27" type="method" name="getSuitColor" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <metrics loc="32" ncloc="29" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="1" elements="6" coveredelements="2"/>
+      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="10"/>
+      <line num="19" type="stmt" count="10"/>
+      <line num="22" type="method" name="getGraphic" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="27" type="method" name="getSuitColor" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="29" type="stmt" count="1"/>
+      <metrics loc="32" ncloc="29" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
     </file>
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Card/Deck.php">
       <class name="App\Card\Deck" namespace="global">
-        <metrics complexity="20" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="47" coveredstatements="47" elements="55" coveredelements="55"/>
+        <metrics complexity="16" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="38" elements="46" coveredelements="46"/>
       </class>
       <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="24"/>
       <line num="22" type="stmt" count="24"/>
-      <line num="25" type="method" name="createDeck" visibility="public" complexity="5" crap="5" count="7"/>
-      <line num="27" type="stmt" count="7"/>
-      <line num="28" type="stmt" count="7"/>
-      <line num="29" type="stmt" count="7"/>
-      <line num="31" type="stmt" count="7"/>
-      <line num="32" type="stmt" count="7"/>
-      <line num="33" type="stmt" count="7"/>
-      <line num="34" type="stmt" count="6"/>
-      <line num="35" type="stmt" count="1"/>
-      <line num="36" type="stmt" count="1"/>
-      <line num="41" type="stmt" count="7"/>
-      <line num="43" type="stmt" count="7"/>
-      <line num="44" type="stmt" count="7"/>
-      <line num="46" type="stmt" count="7"/>
-      <line num="49" type="method" name="shuffle" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="51" type="stmt" count="3"/>
-      <line num="57" type="method" name="getAllCards" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="59" type="stmt" count="4"/>
-      <line num="62" type="method" name="sortDeck" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="64" type="stmt" count="1"/>
+      <line num="25" type="method" name="createDeck" visibility="public" complexity="4" crap="4" count="8"/>
+      <line num="27" type="stmt" count="8"/>
+      <line num="28" type="stmt" count="8"/>
+      <line num="29" type="stmt" count="8"/>
+      <line num="31" type="stmt" count="8"/>
+      <line num="32" type="stmt" count="8"/>
+      <line num="33" type="stmt" count="8"/>
+      <line num="34" type="stmt" count="8"/>
+      <line num="38" type="stmt" count="8"/>
+      <line num="40" type="stmt" count="8"/>
+      <line num="41" type="stmt" count="8"/>
+      <line num="43" type="stmt" count="8"/>
+      <line num="46" type="method" name="shuffle" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="48" type="stmt" count="3"/>
+      <line num="54" type="method" name="getAllCards" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="56" type="stmt" count="4"/>
+      <line num="59" type="method" name="sortDeck" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="61" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="63" type="stmt" count="1"/>
       <line num="65" type="stmt" count="1"/>
       <line num="66" type="stmt" count="1"/>
-      <line num="68" type="stmt" count="1"/>
-      <line num="69" type="stmt" count="1"/>
+      <line num="67" type="stmt" count="1"/>
       <line num="70" type="stmt" count="1"/>
-      <line num="73" type="stmt" count="1"/>
-      <line num="74" type="stmt" count="1"/>
-      <line num="75" type="stmt" count="1"/>
-      <line num="78" type="method" name="isSorted" visibility="public" complexity="4" crap="4" count="2"/>
+      <line num="71" type="stmt" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="75" type="method" name="isSorted" visibility="public" complexity="4" crap="4" count="2"/>
+      <line num="77" type="stmt" count="2"/>
+      <line num="78" type="stmt" count="2"/>
       <line num="80" type="stmt" count="2"/>
       <line num="81" type="stmt" count="2"/>
-      <line num="83" type="stmt" count="2"/>
+      <line num="82" type="stmt" count="2"/>
       <line num="84" type="stmt" count="2"/>
-      <line num="85" type="stmt" count="2"/>
-      <line num="87" type="stmt" count="2"/>
-      <line num="88" type="stmt" count="1"/>
-      <line num="92" type="stmt" count="1"/>
-      <line num="95" type="method" name="drawSpecificCard" visibility="public" complexity="2" crap="2" count="9"/>
-      <line num="97" type="stmt" count="9"/>
+      <line num="85" type="stmt" count="1"/>
+      <line num="89" type="stmt" count="1"/>
+      <line num="92" type="method" name="drawSpecificCard" visibility="public" complexity="2" crap="2" count="9"/>
+      <line num="94" type="stmt" count="9"/>
+      <line num="95" type="stmt" count="8"/>
+      <line num="96" type="stmt" count="8"/>
+      <line num="97" type="stmt" count="8"/>
       <line num="98" type="stmt" count="8"/>
-      <line num="99" type="stmt" count="8"/>
-      <line num="100" type="stmt" count="8"/>
-      <line num="101" type="stmt" count="8"/>
-      <line num="103" type="stmt" count="2"/>
-      <line num="106" type="method" name="createDrawFromDeck" visibility="public" complexity="4" crap="4" count="1"/>
-      <line num="108" type="stmt" count="1"/>
-      <line num="109" type="stmt" count="1"/>
-      <line num="110" type="stmt" count="1"/>
-      <line num="112" type="stmt" count="1"/>
-      <line num="113" type="stmt" count="1"/>
-      <line num="114" type="stmt" count="1"/>
-      <line num="115" type="stmt" count="1"/>
-      <line num="119" type="stmt" count="1"/>
-      <metrics loc="122" ncloc="113" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="47" coveredstatements="47" elements="55" coveredelements="55"/>
+      <line num="100" type="stmt" count="2"/>
+      <line num="103" type="method" name="createDrawFromDeck" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="105" type="stmt" count="1"/>
+      <metrics loc="108" ncloc="99" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="38" elements="46" coveredelements="46"/>
     </file>
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Controller/BookController.php">
       <class name="App\Controller\BookController" namespace="global">
@@ -160,7 +151,7 @@
       <line num="57" type="stmt" count="0"/>
       <line num="59" type="stmt" count="0"/>
       <line num="61" type="stmt" count="0"/>
-      <metrics loc="63" ncloc="62" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="28" coveredelements="0"/>
+      <metrics loc="64" ncloc="63" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="28" coveredelements="0"/>
     </file>
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Controller/CardControllerJson.php">
       <class name="App\Controller\CardControllerJson" namespace="global">
@@ -542,6 +533,14 @@
       <line num="35" type="method" name="report" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="38" type="stmt" count="0"/>
       <metrics loc="41" ncloc="41" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="0" elements="12" coveredelements="0"/>
+    </file>
+    <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Controller/MetricsController.php">
+      <class name="App\Controller\MetricsController" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="11" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
     </file>
     <file name="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/src/Controller/ProductController.php">
       <class name="App\Controller\ProductController" namespace="global">
@@ -933,8 +932,8 @@
       <line num="49" type="stmt" count="0"/>
       <line num="51" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
-      <metrics loc="80" ncloc="33" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+      <metrics loc="81" ncloc="34" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
     </file>
-    <metrics files="28" loc="2055" ncloc="1837" classes="27" methods="125" coveredmethods="34" conditionals="0" coveredconditionals="0" statements="641" coveredstatements="118" elements="766" coveredelements="152"/>
+    <metrics files="29" loc="2060" ncloc="1842" classes="28" methods="126" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="633" coveredstatements="111" elements="759" coveredelements="147"/>
   </project>
 </coverage>

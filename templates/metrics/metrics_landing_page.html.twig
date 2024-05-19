@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+
+    <h1>Metrics</h1>
+
+    <h2>Introduktion</h2>
+    <p>De sex C:na för kodkvalitet är viktiga för att säkerställa att koden är ren och underhållbar. Dessa är:</p>
+    <ul>
+        <li><strong>Codestyle:</strong> Konsekvent kodstil gör koden lättare att läsa och förstå.</li>
+        <li><strong>Coverage:</strong> Testtäckning säkerställer att koden fungerar som förväntat.</li>
+        <li><strong>Complexity:</strong> Lägre komplexitet gör koden enklare att underhålla och mindre benägen för buggar.</li>
+        <li><strong>Cohesion:</strong> Hög sammanhållning inom moduler förbättrar modularitet och återanvändbarhet.</li>
+        <li><strong>Coupling:</strong> Låg koppling mellan moduler minskar beroenden och gör koden mer flexibel.</li>
+        <li><strong>CRAP:</strong> Lågt CRAP-index indikerar att koden är enkel att ändra utan att introducera buggar.</li>
+
+        <h3>Exempel med mätvärden från phpmetrics:</h3>
+        <li><strong>Coupling:</strong> Om man tar ett exempel kan man se att i min kod så har jag klassen App/Card/Deck som har ett AC värde på 6 och ett EC-värde på 5. Detta kan tyda på att denna klassen är väldigt centralt lagd och ofta används utav andra klasser.</li><br>
+        <li><strong>Complexity:</strong> Som exempel här tar jag min klass App/Game/Game som har en genomsnittlig cyklomatisk komplexitet på 17, vilket är antal vägar genom en metod eller liknande. Och den relativa systemkomplexiteten är på 101.65. Det kan tyda på att klassen har flöden och logisk som kan vara svårt att hantera/underhålla.</li><br>
+        <li><strong>CRAP:</strong> Ett bra exempel på CRAP-värden i min kod är metoden "Controller\CardGameController::drawCards()". Den har ett CRAP-värde på 30, vilket indikerar att metoden har hög komplexitet och kan vara svår att förstå och underhålla. En minskning av CRAP-värdet skulle förbättra kodens läsbarhet och underhållbarhet.</li>
+
+    </ul><br><br><br>
+
+    <h2>Phpmetrics</h2>
+    <p>Efter att ha kört phpmetrics i min kod har jag fått fram följande svagheter där min kod kan förbättras i kvalite och underhållbarhet. Det är:</p>
+    <ul>
+        <li><strong>Potentiellt Buggade Klasser:</strong> Under min analys har dessa tre klasser identifierats som eventuellt buggade. Dessa klasser hade behövts granskas för att identifiera och åtgärda eventuella buggar. Klasserna är: "App/Card/Deck, App\Controller\CardGameController, App\Controller\DiceGameController".</li><br>
+        <li><strong>Blob / God Objekt:</strong> En klass indentifierades att lida av blob. Alltså kan denna vara en källa till många buggar. Man hade behövt överväga en omstruktuering av klassen för att den ska vara lättare att underhålla. Klassen är: "App\Controller\ProductController".</li><br>
+        <li><strong>Potentiellt Brister i Kodtäckning:</strong> Till sist så har flera klasser indetifierats med en hög komplexitet, alltså en ökad risk för buggar. Där av rekommenderas det att öka kodtäckning för dessa klasser: "App\Controller\CardGameController, App\Controller\DiceGameController, App\Controller\ProductController, App\Card\CardGraphic".</li><br>
+        <img src="{{ asset('img/phpmetrics.png') }}" alt="Phpmetrics" width="800" height="500">
+    </ul><br><br><br>
+
+    <h2>Scrutinizer</h2>
+    <p>Efter att ha analyserat Scrutinizer-rapporten för min kod har jag identifierat några svaga punkter. Dessa tre är:<</p>
+    <ul>
+        <li><strong>Låg testtäckning:</strong> Det är en klass som har 0% i testtäckning som jag noterade (finns flera som har det). Det betyder då att det inte finns tillräckliga tester för att täcka koden och det gör att risken självklart ökar för buggar eller att koden gör fel saker helt enkelt. Klassen är: "Controller\LuckyControllerJson".</li><br>
+        <li><strong>Kvalitetsproblem:</strong> En klass har okänt testtäckningsvärde. Detta kan tyda på bristande enhetstester eller problem med testmiljön, vilket kan påverka kvaliteten på kodbasen negativt. Klassen det handlar om är: "App\Tests\Card\DeckTest".</li><br>
+        <li><strong>Hög komplexitet:</strong> Det finns vissa klasser som har ett högt CRAP-värde. En klass har ett värde på 30, detta innebär alltså hög komplexitet. Detta tyder på att koden kan vara svår att underhålla och förstå, vilket kan leda till ökad utvecklingstid och fler buggar. Klassen jag syftar på är: "App\Controller\DiceGameController".</li><br>
+
+        <a href="https://scrutinizer-ci.com/g/Mept17/mvc/?branch=master">
+            <img src="https://scrutinizer-ci.com/g/Mept17/mvc/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality">
+        </a>
+        <a href="https://scrutinizer-ci.com/g/Mept17/mvc/?branch=master">
+            <img src="https://scrutinizer-ci.com/g/Mept17/mvc/badges/coverage.png?b=master" alt="Code Coverage">
+        </a>
+        <a href="https://scrutinizer-ci.com/g/Mept17/mvc/build-status/master">
+            <img src="https://scrutinizer-ci.com/g/Mept17/mvc/badges/build.png?b=master" alt="Build Status">
+        </a><br><br>
+        
+        <img src="{{ asset('img/scrutinizer.png') }}" alt="Scrutinizer" width="800" height="500">
+    </ul><br>
+
+    <h2>Förbättringar</h2>
+    <p><strong>Jag har identifierat följande förbättringsområden:</strong></p>
+    <ul>
+        <li><strong>Omstrukturering av Blob / God Objekt klass:</strong> <br> Nuvarande tillstånd: Klassen "App\Controller\ProductController" lider av Blob / God Objekt-mönstret, vilket innebär att den har blivit för stor och ansvarar för för många olika uppgifter. Detta leder till ökad komplexitet och minskad underhållbarhet. Så just nu står det rött och klart och tydligt på matrics att det är något fel och då vad som är fel. <br> Förväntade effekter: Genom att omstrukturera klassen ska jag minska dess komplexitet och förbättra dess underhållbarhet. Därav ska det felet som det indikeras på förvina från matrics</li><br>
+        <li><strong>Öka kodtäckning:</strong> Nuvarande tillstånd: Sedan innan hade jag klassen i "CardGraphic.php" som bara låg på 33% coverage med hjälp av tester och det störde mig då det var enda som inte var 100% i den mappen. <br> Förväntade effekter: Tanken är att göra tester för den klassen för att få upp den till 100%.</li><br>
+        <li><strong>Fixa dubbelkodning</strong> Nuvarande tillstånd: Just nu har klassen "Deck.php" flera ställen där koden skrivs om och alltså blir som dubbletter. Detta gör att prestandan sämras men framförallt blir det mycket svårare att läsa av koden då det är rätt rörigt. Förväntade effekter: Jag vill få till så att koden är lättare att läsa av och att helt enkelt codestylen är snyggare.</li>
+    </ul><br><br>
+    <p><strong>Efter att ha genomfört förbättringarna såg jag följande förändringar:</strong></p>
+    <ul>
+        <li><strong>Omstrukturering av Blob / God Objekt klass resultat:</strong> Här lyckades jag få bort det som den indikerade på i matrics. Främst då där jag kollade som var under violations där det även stod innan vad som stod fel till. Det tog även då bort ett error så det var bra!</li><br>
+        <li><strong>Öka kodtäckning resultat:</strong> Det gick fullt som planerat och jag ökade upp kodtäckningen så att dess test coverage osv flög upp till 100%.</li><br>
+        <li><strong>Fixa dubbelkodning resultat</strong> Efter jag fixat där det skrivits samma kod igen blev codestylen mycket bättre och koden blev mycket lättare att läsa och förstå.</li>
+    </ul><br><br><br>
+
+    <h2>Diskussion</h2>
+    <ul>
+        <li><strong>Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?:</strong> Ja det kan man absolut. Genom att man tar och bryter ner klasser eller metoder i mindre och mer förståeliga delar. Sedan då även med hjälp utav enhetstester kan man aktivt arbeta för att förbättra koden och dens kvalite och på så sätt få till "clean code".</li><br>
+        <li><strong>Finns det fördelar och kanske nackdelar?:</strong> Det finns självklart både för och nackdelar som i allting iprincip. Om man skulle nämna några fördelar är det just detta med att det blir bättre läsbarhet, lättare att underhålla och även att på detta sätt underlätta för sammarbete med annan part. Om man skulle säga någon nackdel skulle jag absolut främst säga att det är betydligt mer tid som måste gå åt om man ska köra på det här med "clean code". Det har jag märkt bara under detta kursmomentet med så pass mycket tid detta krävs och hur många timmar jag fått sitta.</li><br>
+        <li><strong>Ser du andra möjligheter att jobba mot “clean code”?:</strong> Andra möjligheter skulle kunna vara att man kan göra granskningar utav koden för att tidigt kunna se brister eller liknande. Men jag känner väl främst att detta hade man velat vara fler som sitter och gör ihop då jag personligen tyckte det var rätt svårt att jobba med själv. Så möjigheter att lätt jobba ihop på detta sätt och kunna hjälpa varandra inom detta område.</li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+    </ul>
+
+{% endblock %}

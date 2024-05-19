@@ -30,11 +30,8 @@ class Deck
 
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-                if ($cardType === 'Card') {
-                    $cards[] = new Card($suit, $value);
-                } elseif ($cardType === 'CardGraphic') {
-                    $cards[] = new CardGraphic($suit, $value);
-                }
+                $card = ($cardType === 'CardGraphic') ? new CardGraphic($suit, $value) : new Card($suit, $value);
+                $cards[] = $card;
             }
         }
 
@@ -43,7 +40,7 @@ class Deck
         $session = new Session();
         $session->set('deck', $deck);
 
-        return new self($cards);
+        return $deck;
     }
 
     public function shuffle(): void
@@ -105,17 +102,6 @@ class Deck
 
     public static function createDrawFromDeck(string $cardType): Deck
     {
-        $values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-        $cards = [];
-
-        foreach ($suits as $suit) {
-            foreach ($values as $value) {
-                if ($cardType === 'Card') {
-                    $cards[] = new Card($suit, $value);
-                }
-            }
-        }
-        return new self($cards);
+        return self::createDeck($cardType);
     }
 }
