@@ -1,25 +1,16 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Product;
 
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class ProductController extends AbstractController
+class CreateController extends AbstractController
 {
-    #[Route('/product', name: 'app_product')]
-    public function index(): Response
-    {
-        return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
-
     #[Route('/product/create', name: 'product_create')]
     public function createProduct(
         ManagerRegistry $doctrine
@@ -39,7 +30,10 @@ class ProductController extends AbstractController
 
         return new Response('Saved new product with id '.$product->getId());
     }
+}
 
+class ShowController extends AbstractController
+{
     #[Route('/product/show', name: 'product_show_all')]
     public function showAllProduct(
         ProductRepository $productRepository
@@ -66,26 +60,19 @@ class ProductController extends AbstractController
         return $this->json($product);
     }
 
-    #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
-    public function deleteProductById(
-        ManagerRegistry $doctrine,
-        int $id
+    #[Route('/product/show/min/{value}', name: 'product_by_min_value')]
+    public function showProductByMinimumValue(
+        ProductRepository $productRepository,
+        int $value
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
+        $products = $productRepository->findByMinimumValue2($value);
 
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $entityManager->remove($product);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('product_show_all');
+        return $this->json($products);
     }
+}
 
+class UpdateController extends AbstractController
+{
     #[Route('/product/update/{id}/{value}', name: 'product_update')]
     public function updateProduct(
         ManagerRegistry $doctrine,
@@ -106,7 +93,33 @@ class ProductController extends AbstractController
 
         return $this->redirectToRoute('product_show_all');
     }
+}
 
+class DeleteController extends AbstractController
+{
+    #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
+    public function deleteProductById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $product = $entityManager->getRepository(Product::class)->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $entityManager->remove($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product_show_all');
+    }
+}
+
+class ViewController extends AbstractController
+{
     #[Route('/product/view', name: 'product_view_all')]
     public function viewAllProduct(
         ProductRepository $productRepository
@@ -132,15 +145,5 @@ class ProductController extends AbstractController
         ];
 
         return $this->render('product/view.html.twig', $data);
-    }
-
-    #[Route('/product/show/min/{value}', name: 'product_by_min_value')]
-    public function showProductByMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue2($value);
-
-        return $this->json($products);
     }
 }
