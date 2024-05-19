@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="32" assertions="93" errors="0" warnings="0" failures="0" skipped="0" time="0.126652">
+    <testsuite name="Project Test Suite" tests="32" assertions="93" errors="0" warnings="0" failures="0" skipped="0" time="0.126652">
+      <testsuite name="App\Dice\DiceTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Dice/DiceTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.040063">
+        <testcase name="testCreateDice" class="App\Dice\DiceTest" classname="App.Dice.DiceTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Dice/DiceTest.php" line="16" assertions="2" time="0.013719"/>
+        <testcase name="testStubRollDiceLastRoll" class="App\Dice\DiceTest" classname="App.Dice.DiceTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Dice/DiceTest.php" line="28" assertions="1" time="0.026344"/>
+      </testsuite>
+      <testsuite name="App\Tests\Card\CardTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.001673">
+        <testcase name="testGetSuit" class="App\Tests\Card\CardTest" classname="App.Tests.Card.CardTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="16" assertions="1" time="0.001156"/>
+        <testcase name="testGetValue" class="App\Tests\Card\CardTest" classname="App.Tests.Card.CardTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="27" assertions="1" time="0.000517"/>
+      </testsuite>
+      <testsuite name="App\Tests\Card\DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" tests="8" assertions="63" errors="0" warnings="0" failures="0" skipped="0" time="0.067837">
+        <testcase name="testCreateDeck" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="20" assertions="2" time="0.046783"/>
+        <testcase name="testShuffle" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="30" assertions="1" time="0.011190"/>
+        <testcase name="testDrawSpecificCard" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="44" assertions="1" time="0.000811"/>
+        <testcase name="testDrawSpecificCardWhenIndexOutOfBounds" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="55" assertions="1" time="0.001357"/>
+        <testcase name="testIsSorted" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="66" assertions="1" time="0.003857"/>
+        <testcase name="testIsSortedWhenDeckNotSorted" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="77" assertions="1" time="0.001355"/>
+        <testcase name="testCreateDrawFromDeck" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="87" assertions="2" time="0.000710"/>
+        <testcase name="testCreateDeckWithCardGraphic" class="App\Tests\Card\DeckTest" classname="App.Tests.Card.DeckTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="97" assertions="54" time="0.001775"/>
+      </testsuite>
+      <testsuite name="App\Tests\Game\GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" tests="16" assertions="21" errors="0" warnings="0" failures="0" skipped="0" time="0.014588">
+        <testcase name="testInitialScores" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="18" assertions="2" time="0.003785"/>
+        <testcase name="testPlayerDrawCard" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="29" assertions="2" time="0.001452"/>
+        <testcase name="testDetermineWinnerPlayerWins" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="41" assertions="1" time="0.000587"/>
+        <testcase name="testDetermineWinnerBankWins" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="53" assertions="1" time="0.000568"/>
+        <testcase name="testDetermineWinnerTie" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="65" assertions="1" time="0.000685"/>
+        <testcase name="testResetGame" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="77" assertions="3" time="0.000702"/>
+        <testcase name="testBankDrawCard" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="92" assertions="2" time="0.000811"/>
+        <testcase name="testIsPlayerDrawn" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="105" assertions="1" time="0.000647"/>
+        <testcase name="testQueenCardValue" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="116" assertions="1" time="0.000886"/>
+        <testcase name="testJackCardValue" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="127" assertions="1" time="0.000708"/>
+        <testcase name="testPlayerWinsWhenPlayerScoreExceeds21" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="138" assertions="1" time="0.000562"/>
+        <testcase name="testBankWinsWhenBankScoreExceeds21" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="149" assertions="1" time="0.000560"/>
+        <testcase name="testPlayerWinsWithHigherScore" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="160" assertions="1" time="0.000681"/>
+        <testcase name="testBankWinsWithHigherScore" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="172" assertions="1" time="0.000675"/>
+        <testcase name="testPlayerDrawCardGameOver" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="184" assertions="1" time="0.000639"/>
+        <testcase name="testCalculateCardValueNumericValue" class="App\Tests\Game\GameTest" classname="App.Tests.Game.GameTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="196" assertions="1" time="0.000640"/>
+      </testsuite>
+      <testsuite name="App\Tests\Game\PlayerTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" tests="4" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.002491">
+        <testcase name="testInitialScore" class="App\Tests\Game\PlayerTest" classname="App.Tests.Game.PlayerTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="17" assertions="1" time="0.000520"/>
+        <testcase name="testAddToScore" class="App\Tests\Game\PlayerTest" classname="App.Tests.Game.PlayerTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="26" assertions="1" time="0.000611"/>
+        <testcase name="testResetScore" class="App\Tests\Game\PlayerTest" classname="App.Tests.Game.PlayerTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="36" assertions="1" time="0.000771"/>
+        <testcase name="testAddCard" class="App\Tests\Game\PlayerTest" classname="App.Tests.Game.PlayerTest" file="/Users/kna19mepe/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="47" assertions="1" time="0.000589"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
