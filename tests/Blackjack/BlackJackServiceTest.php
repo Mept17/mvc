@@ -66,7 +66,7 @@ class BlackJackServiceTest extends TestCase
         $this->service->playerDrawCard(1); // Bob gets 2 cards
         $this->service->playerDrawCard(1);
         $this->service->bankDrawCard();
-        
+
         $winners = $this->service->determineWinner();
         $this->assertIsArray($winners);
     }
@@ -171,7 +171,7 @@ class BlackJackServiceTest extends TestCase
         }
         $this->assertFalse($this->service->areAllPlayersBust());
     }
-    
+
     public function testAreAllPlayersBustOneOrMoreBust()
     {
         $this->service->startGame();
@@ -230,7 +230,7 @@ class BlackJackServiceTest extends TestCase
         $this->service->playerDrawCard(0); // Player 0 draws again
         $this->service->playerDrawCard(0); // Player 0 draws again (busts)
         $this->service->bankDrawCard();
-        
+
         $winners = $this->service->determineWinner();
         $this->assertEquals(['Bank', 'Bank'], $winners);
     }
@@ -282,14 +282,14 @@ class BlackJackServiceTest extends TestCase
             new Card('Diamond', 'King'), // Player
             new Card('Hearts', 'Queen'), // Bank
         );
-    
+
         $this->service->startGame();
         $this->service->placeBet(0, 10);
         $this->service->playerDrawCard(0); // Player gets 20
         $this->service->bankDrawCard(); // Bank gets 17
         $this->service->playerDrawCard(1); // Player 1 gets 20
         $this->service->bankDrawCard(); // Bank gets 17
-    
+
         $winners = $this->service->determineWinner();
         $this->assertEquals(['Bank', 'Bank'], $winners);
     }

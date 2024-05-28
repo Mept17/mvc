@@ -12,10 +12,16 @@ use App\Card\CardGraphic;
 class BlackJackService
 {
     private Deck $deck;
-    private array $players;
+    /** 
+     * @var Player[] 
+     */
+    private array $players = [];
     private Player $bank;
     private bool $gameOver;
-    private array $bets;
+    /**
+     * @var int[] 
+     */
+    private array $bets = [];
     private bool $started;
     private bool $resultsCalculated;
 
@@ -24,7 +30,7 @@ class BlackJackService
      *
      * @param Deck $deck En kortlek för spelet.
      * @param int $numPlayers Antalet spelare.
-     * @param array $playerNames En array med namnen på spelarna.
+     * @param array<string> $playerNames En array med namnen på spelarna.
      */
     public function __construct(Deck $deck, int $numPlayers, array $playerNames)
     {
@@ -56,7 +62,7 @@ class BlackJackService
     /**
      * Hämta satsningarna för alla spelare.
      *
-     * @return array Satsningarna för alla spelare.
+     * @return array<int> Satsningarna för alla spelare.
      */
     public function getBets(): array
     {
@@ -147,8 +153,8 @@ class BlackJackService
                     $value = $this->calculateCardValue($card, $this->bank);
                     $this->bank->addToScore($value);
                     $this->bank->addCard($graphicCard);
-                // } else {
-                //     break;
+                    // } else {
+                    //     break;
                 }
             }
             $this->gameOver = true;
@@ -185,10 +191,10 @@ class BlackJackService
             $player->resetScore();
         }
         $this->bank->resetScore();
-    
+
         $this->deck = Deck::createDeck('Card');
         $this->deck->shuffle();
-    
+
         $this->gameOver = false;
         $this->bets = array_fill(0, count($this->players), 0);
         $this->started = false;
@@ -198,18 +204,18 @@ class BlackJackService
     /**
      * Kollar vem som vinner.
      *
-     * @return array En array med vinnarna av spelet.
+     * @return string[] En array med vinnarna av spelet.
      */
     public function determineWinner(): array
     {
         if ($this->resultsCalculated) {
             return [];
         }
-    
+
         $winners = [];
         $bankScore = $this->bank->getScore();
         $players = $this->getPlayers();
-    
+
         foreach ($players as $index => $player) {
             $playerScore = $player->getScore();
             if ($playerScore > 21) {
@@ -224,17 +230,17 @@ class BlackJackService
                 $player->adjustMoney($this->bets[$index]); // Returnera bet pengarna vid oavgjort
             }
         }
-    
+
         $this->resultsCalculated = true;
         return $winners;
     }
-    
+
 
     /**
      * Hämta spelarens kort.
      *
      * @param int $playerIndex Index för spelaren.
-     * @return array Spelarens kort.
+     * @return CardGraphic[] Spelarens kort.
      */
     public function getPlayerCards(int $playerIndex): array
     {
@@ -242,9 +248,9 @@ class BlackJackService
     }
 
     /**
-     * Hämta bankens kort.
+     * Hämtar bankens kort.
      *
-     * @return array Bankens kort.
+     * @return CardGraphic[] Bankens kort.
      */
     public function getBankCards(): array
     {
@@ -254,7 +260,7 @@ class BlackJackService
     /**
      * Hämtar alla spelare i spelet.
      *
-     * @return array Alla spelare i spelet.
+     * @return Player[] Alla spelare i spelet.
      */
     public function getPlayers(): array
     {
@@ -281,13 +287,13 @@ class BlackJackService
         if (!$this->started) {
             // Deal one card to the dealer (first card)
             $this->dealerDrawCard();
-            
+
             // Deal two cards to each player
             foreach ($this->players as $playerIndex => $player) {
                 $this->playerDrawCard($playerIndex);
                 $this->playerDrawCard($playerIndex);
             }
-            
+
             $this->started = true;
         }
     }

@@ -9,6 +9,9 @@ use App\Card\CardGraphic;
  */
 class Dealer
 {
+    /**
+     * @var CardGraphic[] En array med kort i dealerns hand.
+     */
     private array $cards = [];
     private int $points = 0;
 
@@ -29,9 +32,9 @@ class Dealer
     }
 
     /**
-     * Hämta alla kort i dealerns hand.
+     * Hämtar alla kort i dealerns hand.
      *
-     * @return array Alla kort i dealerns hand.
+     * @return CardGraphic[] Alla kort i dealerns hand.
      */
     public function getCards(): array
     {

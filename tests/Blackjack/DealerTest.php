@@ -6,21 +6,21 @@ use App\Card\CardGraphic;
 
 class DealerTest extends TestCase
 {
-    private $dealer;
+    private Dealer $dealer;
 
     protected function setUp(): void
     {
         $this->dealer = new Dealer();
     }
 
-    public function testAddCard()
+    public function testAddCard(): void
     {
         $card = new CardGraphic('Hearts', '2');
         $this->dealer->addCard($card);
         $this->assertCount(1, $this->dealer->getCards());
     }
 
-    public function testGetCards()
+    public function testGetCards(): void
     {
         $card1 = new CardGraphic('Hearts', '2');
         $card2 = new CardGraphic('Diamonds', 'Ace');
@@ -32,19 +32,19 @@ class DealerTest extends TestCase
         $this->assertSame($card2, $cards[1]);
     }
 
-    public function testGetPointsNoCards()
+    public function testGetPointsNoCards(): void
     {
         $this->assertEquals(0, $this->dealer->getPoints());
     }
 
-    public function testGetPointsWithNumericCards()
+    public function testGetPointsWithNumericCards(): void
     {
         $this->dealer->addCard(new CardGraphic('Hearts', '2'));
         $this->dealer->addCard(new CardGraphic('Diamonds', '3'));
         $this->assertEquals(5, $this->dealer->getPoints());
     }
 
-    public function testGetPointsWithNonNumericCards()
+    public function testGetPointsWithNonNumericCards(): void
     {
         $this->dealer->addCard(new CardGraphic('Hearts', 'King'));
         $this->dealer->addCard(new CardGraphic('Diamonds', 'Ace'));

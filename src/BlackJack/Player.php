@@ -11,6 +11,9 @@ class Player
 {
     private string $name;
     private int $score;
+    /**
+     * @var CardGraphic[] En array med kort i spelarens hand.
+     */
     private array $cards;
     private int $money;
     private bool $bust;
@@ -87,7 +90,7 @@ class Player
     /**
      * Hämtar alla kort i spelarens hand.
      *
-     * @return array Alla kort i spelarens hand.
+     * @return CardGraphic[] Alla kort i spelarens hand.
      */
     public function getCards(): array
     {

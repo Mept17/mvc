@@ -148,6 +148,7 @@ class BlackJackController extends AbstractController
         }
         $deck = Deck::createDeck('Card');
         $deck->shuffle();
+        $playerNames = array_map('strval', $playerNames);
         $game = new BlackJackService($deck, $numPlayers, $playerNames);
         $request->getSession()->set('game', $game);
         $request->getSession()->set('player_names', $playerNames);
@@ -169,7 +170,7 @@ class BlackJackController extends AbstractController
         $game = $request->getSession()->get('game');
         if ($game instanceof BlackJackService) {
             $game->playerDrawCard($playerIndex);
-            
+
             if ($game->areAllPlayersBust()) {
                 $game->bankDrawCard();
             }

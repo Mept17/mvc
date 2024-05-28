@@ -6,44 +6,44 @@ use App\Card\CardGraphic;
 
 class PlayerTest extends TestCase
 {
-    private $player;
+    private Player $player;
 
     protected function setUp(): void
     {
         $this->player = new Player('John', 100); // Assuming starting money is 100
     }
 
-    public function testGetName()
+    public function testGetName(): void
     {
         $this->assertEquals('John', $this->player->getName());
     }
 
-    public function testGetScore()
+    public function testGetScore(): void
     {
         $this->assertEquals(0, $this->player->getScore());
     }
 
-    public function testAddToScore()
+    public function testAddToScore(): void
     {
         $this->player->addToScore(5);
         $this->assertEquals(5, $this->player->getScore());
     }
 
-    public function testResetScore()
+    public function testResetScore(): void
     {
         $this->player->addToScore(5);
         $this->player->resetScore();
         $this->assertEquals(0, $this->player->getScore());
     }
 
-    public function testAddCard()
+    public function testAddCard(): void
     {
         $card = new CardGraphic('Hearts', '2');
         $this->player->addCard($card);
         $this->assertCount(1, $this->player->getCards());
     }
 
-    public function testGetCards()
+    public function testGetCards(): void
     {
         $card1 = new CardGraphic('Hearts', '2');
         $card2 = new CardGraphic('Diamonds', 'Ace');
@@ -55,23 +55,23 @@ class PlayerTest extends TestCase
         $this->assertSame($card2, $cards[1]);
     }
 
-    public function testGetMoney()
+    public function testGetMoney(): void
     {
         $this->assertEquals(100, $this->player->getMoney());
     }
 
-    public function testAdjustMoney()
+    public function testAdjustMoney(): void
     {
         $this->player->adjustMoney(50);
         $this->assertEquals(150, $this->player->getMoney());
     }
 
-    public function testIsBust()
+    public function testIsBust(): void
     {
         $this->assertFalse($this->player->isBust());
     }
 
-    public function testSetBust()
+    public function testSetBust(): void
     {
         $this->player->setBust(true);
         $this->assertTrue($this->player->isBust());
