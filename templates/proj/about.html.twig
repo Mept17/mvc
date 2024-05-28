@@ -1,0 +1,24 @@
+{% extends 'proj/base_blackjack.html.twig' %}
+
+{% block title %}About Blackjack{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/blackjack.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<main>
+    <h1>Om detta projektet</h1>
+    <p>I detta projektet har jag programmerat ihop ett blackjack spel. Ett ganska simpelt blackjack spel med grundreglerna. Vid varje start av spelet så får varje spelare som är med 100$ att spela med och inför varje start får varje spelare enskilt välja vad man ska satsa. Vid vinst över "Dealern" dubblas dina pengar du satsat, vid förlust blir du av med alla du satsat och vid lika får du tillbaka pengarna du satsat. Ditt mål är att nå 21 eller hamna så nära 21 som möjligt utan att få över det för då har du förlorat. Om du inte plockar mer kort innan du nått 21 ska du få högre poäng än dealern så vinner du. Det finns ingen knapp för att välja att stanna utan när alla spelarna är nöjda med sina kort så klickar man på dealerns "Hit" för att rundan ska avslutas.</p><br>
+    <h4>Reglerna för spelet är följande:</h4>
+    <p>- Knekt, Dam, Kung är värda 10</p>
+    <p>- Ess är värt 1 eller 11</p>
+    <p>- Varje spelare tilldels två kort var vid start.</p>
+    <p>- Vid "Hit" får spelaren ett kort tilldelat tills sig.</p>
+    <p>- Är du nöjd med dina kort och vill stanna så väntar du till resterande spelare är nöjda innan du klickar på dealerns "Hit".</p>
+
+</main>
+{% endblock %}

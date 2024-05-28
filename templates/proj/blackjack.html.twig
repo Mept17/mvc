@@ -1,0 +1,84 @@
+{% extends 'proj/base_blackjack.html.twig' %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+    <h1>Blackjack Game</h1>
+    {% if not gameStarted %}
+        <h2>Place Your Bets</h2>
+        <form action="{{ path('blackjack_place_bets') }}" method="post">
+            {% for playerIndex in 0..players|length - 1 %}
+                {% if players[playerIndex].money > 0 %}
+                    <label for="bet_{{ playerIndex }}">{{ players[playerIndex].name }}'s Bet (Current Money: ${{ players[playerIndex].money }}):</label>
+                    <input type="number" id="bet_{{ playerIndex }}" name="bet_{{ playerIndex }}" min="1" max="{{ players[playerIndex].money }}" required>
+                    <br>
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Place Bets</button>
+        </form>
+    {% elseif playersWithBets is empty %}
+        <p>Alla spelare är bankrutt. Spelet startar om.</p>
+        <a href="{{ path('blackjack_landing') }}">Tillbaka till startsidan</a>
+    {% else %}
+        <div class="card-container">
+            {% for playerIndex in 0..players|length - 1 %}
+                {% if players[playerIndex].money > 0 or playerIndex in playersWithBets %}
+                    <div class="player-section">
+                        <h2>{{ players[playerIndex].name }}'s cards</h2>
+                        <p>Score: {{ players[playerIndex].score }}</p>
+                        <p>Money: ${{ players[playerIndex].money }}</p>
+                        <ul class="card-container">
+                            {% for card in playerCards[playerIndex] %}
+                                <li class="card {{ card.getSuitColor() }}">{{ card.getGraphic() }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% if not players[playerIndex].bust and not gameOver %}
+                            <a href="{{ path('blackjack_player_draw', {playerIndex: playerIndex}) }}">Hit</a>
+                        {% elseif players[playerIndex].bust %}
+                            <p>Busted!</p>
+                        {% endif %}
+                    </div>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div class="dealer-section">
+            <h2>Dealer cards</h2>
+            <p>Score: {{ bankScore }}</p>
+            <ul class="card-container">
+                {% if dealerFirstCard is not null %}
+                    <li class="card {{ dealerFirstCard.getSuitColor() }}">{{ dealerFirstCard.getGraphic() }}</li> {# Display dealer's first card #}
+                {% endif %}
+                {% for card in bankCards|slice(1) %}
+                    <li class="card {{ card.getSuitColor() }}">{{ card.getGraphic() }}</li>
+                {% endfor %}
+            </ul>
+            {% if not gameOver %}
+                <a href="{{ path('blackjack_bank_draw') }}">Hit</a>
+            {% endif %}
+        </div>
+
+        {% if gameOver %}
+            <h2>Game Over</h2>
+            <p>Results:</p>
+            <ul>
+                {% for index, winner in winners %}
+                    {% if players[index].money > 0 %}
+                        <li>{{ players[index].name }}'s round: 
+                            {% if winner == 'Player' %}
+                                Player wins
+                            {% elseif winner == 'Bank' %}
+                                Dealer wins
+                            {% else %}
+                                Draw
+                            {% endif %}
+                            {% if winner != 'Draw' or winner == 'Draw' %} (Remaining Money: ${{ players[index].money }}){% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <a href="{{ path('blackjack_reset') }}">Play Again</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

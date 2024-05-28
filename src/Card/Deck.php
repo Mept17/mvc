@@ -7,6 +7,9 @@ use App\Card\CardGraphic;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 
+/**
+ * Representerar en kortlek som innehåller spelkort.
+ */
 class Deck
 {
     /**
@@ -15,13 +18,21 @@ class Deck
     private array $cards;
 
     /**
-     * @param array<Card|CardGraphic> $cards An array containing objects of type Card or CardGraphic.
+     * Skapar en ny kortlek med dom angivna korten.
+     *
+     * @param array<Card|CardGraphic> $cards En array som innehåller objekt av typen Card eller CardGraphic.
      */
     public function __construct(array $cards)
     {
         $this->cards = $cards;
     }
 
+    /**
+     * Skapar en ny kortlek med standardvärden.
+     *
+     * @param string $cardType Typen av kort som ska skapas.
+     * @return Deck En ny instans av kortleken.
+     */
     public static function createDeck(string $cardType): Deck
     {
         $values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
@@ -43,19 +54,31 @@ class Deck
         return $deck;
     }
 
+    /**
+     * Blandar kortleken.
+     *
+     * @return void
+     */
     public function shuffle(): void
     {
         shuffle($this->cards);
     }
 
     /**
-     * @return array<Card|CardGraphic>
+     * Hämtar alla kort i kortleken.
+     *
+     * @return array<Card|CardGraphic> Alla kort i kortleken.
      */
     public function getAllCards(): array
     {
         return $this->cards;
     }
 
+    /**
+     * Sorterar kortleken.
+     *
+     * @return void
+     */
     public function sortDeck(): void
     {
         usort($this->cards, function ($a, $b) {
@@ -72,6 +95,11 @@ class Deck
         });
     }
 
+    /**
+     * Kontrollerar om kortleken är sorterad.
+     *
+     * @return bool True om kortleken är sorterad, annars false.
+     */
     public function isSorted(): bool
     {
         $valuesOrder = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
@@ -89,6 +117,12 @@ class Deck
         return true;
     }
 
+    /**
+     * Drar ett specifikt kort från kortleken baserat på index.
+     *
+     * @param int $index Index för det kort som ska dras.
+     * @return Card|null Det dragna kortet eller null om indexet är ogiltigt.
+     */
     public function drawSpecificCard(int $index): ?Card
     {
         if (isset($this->cards[$index])) {
@@ -100,6 +134,12 @@ class Deck
         return null;
     }
 
+    /**
+     * Skapar en ny kortlek för dragning.
+     *
+     * @param string $cardType Typen av kort som ska skapas.
+     * @return Deck En ny instans av kortleken.
+     */
     public static function createDrawFromDeck(string $cardType): Deck
     {
         return self::createDeck($cardType);

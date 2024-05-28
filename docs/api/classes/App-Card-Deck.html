@@ -61,6 +61,10 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
+                <a href="namespaces/app-blackjack.html" class="">BlackJack</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/app-card.html" class="">Card</a>
                 
             </li>
@@ -146,11 +150,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Representerar en kortlek som innehåller spelkort.</p>
+
 
 
 
@@ -195,48 +200,56 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Skapar en ny kortlek med dom angivna korten.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_createDeck">createDeck()</a>
     <span>
                                 &nbsp;: <a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a>    </span>
 </dt>
+<dd>Skapar en ny kortlek med standardvärden.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_createDrawFromDeck">createDrawFromDeck()</a>
     <span>
                                 &nbsp;: <a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a>    </span>
 </dt>
+<dd>Skapar en ny kortlek för dragning.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_drawSpecificCard">drawSpecificCard()</a>
     <span>
                                 &nbsp;: <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|null    </span>
 </dt>
+<dd>Drar ett specifikt kort från kortleken baserat på index.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_getAllCards">getAllCards()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|<a href="classes/App-Card-CardGraphic.html"><abbr title="\App\Card\CardGraphic">CardGraphic</abbr></a>&gt;    </span>
 </dt>
+<dd>Hämtar alla kort i kortleken.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_isSorted">isSorted()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Kontrollerar om kortleken är sorterad.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_shuffle">shuffle()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Blandar kortleken.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Deck.html#method_sortDeck">sortDeck()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Sorterar kortleken.</dd>
 
     </dl>
 
@@ -269,7 +282,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
@@ -307,11 +320,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Skapar en ny kortlek med dom angivna korten.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|<a href="classes/App-Card-CardGraphic.html"><abbr title="\App\Card\CardGraphic">CardGraphic</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cards</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -326,7 +340,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|<a href="classes/App-Card-CardGraphic.html"><abbr title="\App\Card\CardGraphic">CardGraphic</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>An array containing objects of type Card or CardGraphic.</p>
+                    <section class="phpdocumentor-description"><p>En array som innehåller objekt av typen Card eller CardGraphic.</p>
 </section>
 
             </dd>
@@ -350,11 +364,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Skapar en ny kortlek med standardvärden.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">createDeck</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cardType</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a></span></code>
@@ -369,7 +384,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Typen av kort som ska skapas.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -378,6 +395,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>En ny instans av kortleken.</p>
+</section>
+
             </section>
 
 </article>
@@ -395,11 +416,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">143</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Skapar en ny kortlek för dragning.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">createDrawFromDeck</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cardType</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a></span></code>
@@ -414,7 +436,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Typen av kort som ska skapas.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -423,6 +447,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Deck.html"><abbr title="\App\Card\Deck">Deck</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>En ny instans av kortleken.</p>
+</section>
+
             </section>
 
 </article>
@@ -440,11 +468,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Drar ett specifikt kort från kortleken baserat på index.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">drawSpecificCard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|null</span></code>
@@ -459,7 +488,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Index för det kort som ska dras.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -468,6 +499,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Det dragna kortet eller null om indexet är ogiltigt.</p>
+</section>
+
             </section>
 
 </article>
@@ -485,11 +520,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar alla kort i kortleken.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAllCards</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|<a href="classes/App-Card-CardGraphic.html"><abbr title="\App\Card\CardGraphic">CardGraphic</abbr></a>&gt;</span></code>
@@ -503,6 +539,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|<a href="classes/App-Card-CardGraphic.html"><abbr title="\App\Card\CardGraphic">CardGraphic</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Alla kort i kortleken.</p>
+</section>
+
             </section>
 
 </article>
@@ -520,11 +560,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Kontrollerar om kortleken är sorterad.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isSorted</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -538,6 +579,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True om kortleken är sorterad, annars false.</p>
+</section>
+
             </section>
 
 </article>
@@ -555,11 +600,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Blandar kortleken.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">shuffle</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -586,11 +632,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Deck.php"><a href="files/src-card-deck.html"><abbr title="src/Card/Deck.php">Deck.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Sorterar kortleken.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">sortDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>

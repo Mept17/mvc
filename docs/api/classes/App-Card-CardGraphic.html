@@ -61,6 +61,10 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
+                <a href="namespaces/app-blackjack.html" class="">BlackJack</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/app-card.html" class="">Card</a>
                 
             </li>
@@ -149,11 +153,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Representerar ett spelkort med grafisk representation.</p>
+
 
 
 
@@ -210,30 +215,42 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Skapar ett spelkort med grafisk representation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-CardGraphic.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returnera den grafiska representationen av kortet som en sträng.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-CardGraphic.html#method_getGraphic">getGraphic()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar den grafiska representationen av kortet.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Card.html#method_getSuit">getSuit()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar färgen på kortet.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-CardGraphic.html#method_getSuitColor">getSuitColor()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar färgen på kortet.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Card-Card.html#method_getValue">getValue()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar värdet på kortet.</dd>
 
     </dl>
 
@@ -266,7 +283,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -299,7 +316,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -332,7 +349,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
@@ -370,11 +387,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Skapar ett spelkort med grafisk representation.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -389,20 +407,64 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Färgen på kortet.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Värdet på kortet.</p>
+</section>
+
             </dd>
             </dl>
 
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/App-Card-CardGraphic.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returnera den grafiska representationen av kortet som en sträng.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Den grafiska representationen av kortet.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -418,11 +480,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar den grafiska representationen av kortet.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getGraphic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -436,6 +499,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Den grafiska representationen av kortet.</p>
+</section>
+
             </section>
 
 </article>
@@ -453,11 +520,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar färgen på kortet.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSuit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -471,6 +539,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Färgen på kortet.</p>
+</section>
+
             </section>
 
 </article>
@@ -488,11 +560,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar färgen på kortet.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSuitColor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -506,6 +579,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Färgen på kortet (röd eller svart).</p>
+</section>
+
             </section>
 
 </article>
@@ -523,11 +600,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar värdet på kortet.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -541,6 +619,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Värdet på kortet.</p>
+</section>
+
             </section>
 
 </article>
@@ -667,6 +749,7 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/App-Card-CardGraphic.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/App-Card-CardGraphic.html#method___toString">__toString()</a></li>
                                             <li><a href="classes/App-Card-CardGraphic.html#method_getGraphic">getGraphic()</a></li>
                                             <li><a href="classes/App-Card-Card.html#method_getSuit">getSuit()</a></li>
                                             <li><a href="classes/App-Card-CardGraphic.html#method_getSuitColor">getSuitColor()</a></li>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">        {% block stylesheets %}
+            {{ encore_entry_link_tags('blackjack') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <header class="site-header" style="background-image: url({{ asset('img/blackjack.png') }})">
+            <span class="site-title">My Symfony Project Site</span>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="{{ path('blackjack_landing') }}">Blackjack landing and game page</a></li>
+                <li><a href="{{ path('blackjack_about') }}">Blackjack about</a></li>
+            </ul>
+        </nav>
+
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+ 
+    </body>
+</html>

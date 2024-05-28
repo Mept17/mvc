@@ -1,0 +1,9 @@
+{% extends 'proj/base_blackjack.html.twig' %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+    <h1>Blackjack Game</h1>
+    <p>Alla spelare är bankrutt. Du skickas tillbaka till startsidan via länken nedanför.</p>
+    <a href="{{ path('blackjack_landing') }}">Tillbaka till startsidan</a>
+{% endblock %}

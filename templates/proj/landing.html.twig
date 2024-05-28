@@ -1,0 +1,40 @@
+{% extends 'proj/base_blackjack.html.twig' %}
+
+{% block title %}Blackjack Landing{% endblock %}
+
+{% block body %}
+    <h1>Välkommen till mitt projekt!</h1>
+    <h3>Här kan du läsa vad som ingår i mitt prjekt och hur det går till med regler och liknande!</h3>
+    <li><a href="{{ path('blackjack_about') }}">Om projektet</a></li><br>
+
+    <h3>Här kan du starta spelet Blackjack!</h3>
+    <p>Välj antalet spelare och fyll i erat namn:</p>
+    <p>(Spelet är gjort på engelska då det passar bättre :D)</p>
+    <form action="{{ path('blackjack_start') }}" method="POST">
+        <label for="num_players">Antalet spelare (1-3):</label>
+        <input type="number" id="num_players" name="num_players" min="1" max="3" required>
+        
+        {% for i in 1..3 %}
+            <div class="player-name-input" id="player_{{ i }}" style="display: none;">
+                <label for="player_name_{{ i }}">Spelare {{ i }} namn:</label>
+                <input type="text" id="player_name_{{ i }}" name="player_name_{{ i }}">
+            </div>
+        {% endfor %}
+
+        <button type="submit">Start Game</button>
+    </form>
+
+    <script>
+        document.getElementById('num_players').addEventListener('change', function () {
+            let numPlayers = this.value;
+            for (let i = 1; i <= 3; i++) {
+                let playerInput = document.getElementById('player_' + i);
+                if (i <= numPlayers) {
+                    playerInput.style.display = 'block';
+                } else {
+                    playerInput.style.display = 'none';
+                }
+            }
+        });
+    </script>
+{% endblock %}
