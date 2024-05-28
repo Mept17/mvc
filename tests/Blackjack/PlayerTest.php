@@ -10,7 +10,7 @@ class PlayerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->player = new Player('John', 100); // Assuming starting money is 100
+        $this->player = new Player('John', 100);
     }
 
     public function testGetName(): void

@@ -73,7 +73,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\BlackJack\\BlackJackService\u003A\u003AgetBankCards\u0028\u0029",
             "name": "getBankCards",
-            "summary": "H\u00E4mta\u0020bankens\u0020kort.",
+            "summary": "H\u00E4mtar\u0020bankens\u0020kort.",
             "url": "classes/App-BlackJack-BlackJackService.html#method_getBankCards"
         },                {
             "fqsen": "\\App\\BlackJack\\BlackJackService\u003A\u003AgetPlayers\u0028\u0029",
@@ -148,7 +148,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\BlackJack\\Dealer\u003A\u003AgetCards\u0028\u0029",
             "name": "getCards",
-            "summary": "H\u00E4mta\u0020alla\u0020kort\u0020i\u0020dealerns\u0020hand.",
+            "summary": "H\u00E4mtar\u0020alla\u0020kort\u0020i\u0020dealerns\u0020hand.",
             "url": "classes/App-BlackJack-Dealer.html#method_getCards"
         },                {
             "fqsen": "\\App\\BlackJack\\Dealer\u003A\u003AgetPoints\u0028\u0029",
@@ -363,52 +363,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController",
             "name": "BlackJackController",
-            "summary": "",
+            "summary": "Controller\u0020f\u00F6r\u0020att\u0020hantera\u0020BlackJack\u002Dspelet.",
             "url": "classes/App-Controller-BlackJackController.html"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AlandingPage\u0028\u0029",
             "name": "landingPage",
-            "summary": "",
+            "summary": "Renderar\u0020landningssidan\u0020f\u00F6r\u0020BlackJack\u002Dspelet.",
             "url": "classes/App-Controller-BlackJackController.html#method_landingPage"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AaboutPage\u0028\u0029",
             "name": "aboutPage",
-            "summary": "",
+            "summary": "Renderar\u0020sidan\u0020\u0022About\u0022\u0020f\u00F6r\u0020BlackJack\u002Dspelet.",
             "url": "classes/App-Controller-BlackJackController.html#method_aboutPage"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Renderar\u0020sj\u00E4lva\u0020BlackJack\u002Dspelet.",
             "url": "classes/App-Controller-BlackJackController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AstartGame\u0028\u0029",
             "name": "startGame",
-            "summary": "",
+            "summary": "Startar\u0020ett\u0020nytt\u0020BlackJack\u002Dspel.",
             "url": "classes/App-Controller-BlackJackController.html#method_startGame"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AplayerDraw\u0028\u0029",
             "name": "playerDraw",
-            "summary": "",
+            "summary": "Hanterar\u0020n\u00E4r\u0020en\u0020spelare\u0020drar\u0020ett\u0020kort.",
             "url": "classes/App-Controller-BlackJackController.html#method_playerDraw"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AbankDraw\u0028\u0029",
             "name": "bankDraw",
-            "summary": "",
+            "summary": "Hanterar\u0020n\u00E4r\u0020banken\u0020\u0028dealern\u0029\u0020drar\u0020kort.",
             "url": "classes/App-Controller-BlackJackController.html#method_bankDraw"
-        },                {
-            "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AplayerStay\u0028\u0029",
-            "name": "playerStay",
-            "summary": "",
-            "url": "classes/App-Controller-BlackJackController.html#method_playerStay"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AresetGame\u0028\u0029",
             "name": "resetGame",
-            "summary": "",
+            "summary": "\u00C5terst\u00E4ller\u0020BlackJack\u002Dspelet\u0020till\u0020sitt\u0020ursprungliga\u0020tillst\u00E5nd.",
             "url": "classes/App-Controller-BlackJackController.html#method_resetGame"
         },                {
             "fqsen": "\\App\\Controller\\BlackJackController\u003A\u003AplaceBets\u0028\u0029",
             "name": "placeBets",
-            "summary": "",
+            "summary": "Hanterar\u0020n\u00E4r\u0020spelare\u0020placerar\u0020sina\u0020insatser.",
             "url": "classes/App-Controller-BlackJackController.html#method_placeBets"
         },                {
             "fqsen": "\\App\\Controller\\BookController",
