@@ -12,14 +12,14 @@ use App\Card\CardGraphic;
 class BlackJackService
 {
     private Deck $deck;
-    /** 
-     * @var Player[] 
+    /**
+     * @var Player[]
      */
     private array $players = [];
     private Player $bank;
     private bool $gameOver;
     /**
-     * @var int[] 
+     * @var int[]
      */
     private array $bets = [];
     private bool $started;
@@ -36,8 +36,13 @@ class BlackJackService
     {
         $this->deck = $deck;
         $this->players = [];
-        for ($i = 0; $i < $numPlayers; $i++) {
-            $this->players[] = new Player($playerNames[$i], 100); // Initial amount of money
+        if (count($playerNames) > 0) {
+            for ($i = 0; $i < $numPlayers; $i++) {
+                // Kontrollera om det finns tillräckligt med namn i $playerNames innan du försöker komma åt dem
+                if (isset($playerNames[$i])) {
+                    $this->players[] = new Player($playerNames[$i], 100); // Initial amount of money
+                }
+            }
         }
         $this->bank = new Player('Bank');
         $this->gameOver = false;

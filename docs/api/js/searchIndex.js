@@ -406,6 +406,46 @@ Search.appendIndex(
             "summary": "Hanterar\u0020n\u00E4r\u0020spelare\u0020placerar\u0020sina\u0020insatser.",
             "url": "classes/App-Controller-BlackJackController.html#method_placeBets"
         },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson",
+            "name": "BlackJackControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AapiLandingBlackjack\u0028\u0029",
+            "name": "apiLandingBlackjack",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_apiLandingBlackjack"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AstartGame\u0028\u0029",
+            "name": "startGame",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_startGame"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AplayerDrawCard\u0028\u0029",
+            "name": "playerDrawCard",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_playerDrawCard"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AbankDrawCard\u0028\u0029",
+            "name": "bankDrawCard",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_bankDrawCard"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AgetPlayerScore\u0028\u0029",
+            "name": "getPlayerScore",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_getPlayerScore"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AgetBankScore\u0028\u0029",
+            "name": "getBankScore",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_getBankScore"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackJackControllerJson\u003A\u003AdetermineWinner\u0028\u0029",
+            "name": "determineWinner",
+            "summary": "",
+            "url": "classes/App-Controller-BlackJackControllerJson.html#method_determineWinner"
+        },                {
             "fqsen": "\\App\\Controller\\BookController",
             "name": "BookController",
             "summary": "",

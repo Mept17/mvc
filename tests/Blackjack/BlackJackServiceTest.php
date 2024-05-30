@@ -9,9 +9,13 @@ use App\Card\CardGraphic;
 
 class BlackJackServiceTest extends TestCase
 {
+    /**
+     * @var BlackJackService
+     */
     private $service;
-    private $deck;
-    private $playerNames;
+    private Deck $deck;
+    /** @var string[] $playerNames Array containing the names of players. */
+    private array $playerNames = [];
 
     protected function setUp(): void
     {
@@ -21,21 +25,22 @@ class BlackJackServiceTest extends TestCase
         $this->service = new BlackJackService($this->deck, count($this->playerNames), $this->playerNames);
     }
 
-    public function testPlaceBet()
+    public function testPlaceBet(): void
     {
         $this->service->placeBet(0, 10);
         $this->assertEquals([10, 0], $this->service->getBets());
     }
 
-    public function testPlayerDrawCard()
+    public function testPlayerDrawCard(): void
     {
         $this->service->startGame();
         $this->service->playerDrawCard(0);
         $this->assertEquals(6, $this->service->getPlayerScore(0));
     }
 
-    public function testBankDrawCard()
+    public function testBankDrawCard(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturnOnConsecutiveCalls(
             new Card('Hearts', '2'),
             new Card('Hearts', '2'),
@@ -49,7 +54,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(18, $this->service->getBankScore());
     }
 
-    public function testAreAllPlayersBust()
+    public function testAreAllPlayersBust(): void
     {
         $this->service->startGame();
         $this->service->playerDrawCard(0);
@@ -58,7 +63,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertFalse($this->service->areAllPlayersBust());
     }
 
-    public function testDetermineWinner()
+    public function testDetermineWinner(): void
     {
         $this->service->startGame();
         $this->service->playerDrawCard(0);
@@ -71,7 +76,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertIsArray($winners);
     }
 
-    public function testResetGame()
+    public function testResetGame(): void
     {
         $this->service->startGame();
         $this->service->resetGame();
@@ -81,7 +86,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertFalse($this->service->isStarted());
     }
 
-    public function testGetPlayerCards()
+    public function testGetPlayerCards(): void
     {
         $this->service->startGame();
         $cards = $this->service->getPlayerCards(0);
@@ -89,7 +94,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertCount(2, $cards);
     }
 
-    public function testGetBankCards()
+    public function testGetBankCards(): void
     {
         $this->service->startGame();
         $cards = $this->service->getBankCards();
@@ -97,21 +102,21 @@ class BlackJackServiceTest extends TestCase
         $this->assertCount(1, $cards);
     }
 
-    public function testGetDealerFirstCard()
+    public function testGetDealerFirstCard(): void
     {
         $this->service->startGame();
         $card = $this->service->getDealerFirstCard();
         $this->assertInstanceOf(CardGraphic::class, $card);
     }
 
-    public function testIsStarted()
+    public function testIsStarted(): void
     {
         $this->assertFalse($this->service->isStarted());
         $this->service->startGame();
         $this->assertTrue($this->service->isStarted());
     }
 
-    public function testPlayerBusts()
+    public function testPlayerBusts(): void
     {
         $this->service->startGame();
         $this->service->playerDrawCard(0);
@@ -121,7 +126,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertFalse($this->service->getPlayers()[0]->isBust());
     }
 
-    public function testCalculateCardValueAce()
+    public function testCalculateCardValueAce(): void
     {
         $player = new Player('TestPlayer');
         $player->addToScore(10);
@@ -133,7 +138,7 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(1, $this->service->calculateCardValue($card, $player));
     }
 
-    public function testCalculateCardValueFaceCard()
+    public function testCalculateCardValueFaceCard(): void
     {
         $player = new Player('TestPlayer');
         $card = new Card('Spades', 'King');
@@ -141,37 +146,42 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(10, $this->service->calculateCardValue($card, $player));
     }
 
-    public function testIsGameOver()
+    public function testIsGameOver(): void
     {
         $this->assertFalse($this->service->isGameOver());
     }
 
-    public function testAreAllPlayersBustNoneBust()
+    public function testAreAllPlayersBustNoneBust(): void
     {
         $this->service->startGame();
         foreach ($this->playerNames as $playerName) {
             $playerIndex = array_search($playerName, $this->playerNames);
-            while ($this->service->getPlayerScore($playerIndex) < 20) {
-                $this->service->playerDrawCard($playerIndex);
+            if (is_int($playerIndex)) {
+                while ($this->service->getPlayerScore($playerIndex) < 20) {
+                    $this->service->playerDrawCard($playerIndex);
+                }
             }
         }
         $this->assertFalse($this->service->areAllPlayersBust());
     }
 
-    public function testAreAllPlayersBustOneOrMoreBust()
+    public function testAreAllPlayersBustOneOrMoreBust(): void
     {
         $this->service->startGame();
         foreach ($this->playerNames as $playerName) {
             $playerIndex = array_search($playerName, $this->playerNames);
-            while ($this->service->getPlayerScore($playerIndex) < 22) {
-                $this->service->playerDrawCard($playerIndex);
+            if (is_int($playerIndex)) {
+                while ($this->service->getPlayerScore($playerIndex) < 22) {
+                    $this->service->playerDrawCard($playerIndex);
+                }
             }
         }
         $this->assertTrue($this->service->areAllPlayersBust());
     }
 
-    public function testBankDrawCardBust()
+    public function testBankDrawCardBust(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturnOnConsecutiveCalls(
             new Card('Hearts', '10'),
             new Card('Hearts', '10'),
@@ -185,20 +195,21 @@ class BlackJackServiceTest extends TestCase
         $this->assertTrue($this->service->isGameOver());
     }
 
-    public function testBreakLoopIfNoCardDrawn()
+    public function testBreakLoopIfNoCardDrawn(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturn(null);
         $this->service->startGame();
         $this->service->playerDrawCard(0);
         $this->assertFalse($this->service->isGameOver());
     }
 
-    public function testGetDealerFirstCardReturnsNullIfNoCards()
+    public function testGetDealerFirstCardReturnsNullIfNoCards(): void
     {
         $this->assertNull($this->service->getDealerFirstCard());
     }
 
-    public function testDetermineWinnerAllBust()
+    public function testDetermineWinnerAllBust(): void
     {
         $this->service->startGame();
         $this->service->playerDrawCard(0);
@@ -210,8 +221,9 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(['Bank', 'Bank'], $winners);
     }
 
-    public function testDetermineWinnerBankBusts()
+    public function testDetermineWinnerBankBusts(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturnOnConsecutiveCalls(
             new Card('Hearts', '9'),
             new Card('Hearts', '10'),
@@ -236,8 +248,9 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(['Bank', 'Bank'], $winners);
     }
 
-    public function testDetermineWinnerDraw()
+    public function testDetermineWinnerDraw(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturnOnConsecutiveCalls(
             new Card('Diamond', '10'),
             new Card('Hearts', '10'),
@@ -249,8 +262,9 @@ class BlackJackServiceTest extends TestCase
         $this->assertEquals(['Draw', 'Draw'], $winners);
     }
 
-    public function testDetermineWinnerBankWins()
+    public function testDetermineWinnerBankWins(): void
     {
+        $this->deck = $this->createMock(Deck::class);
         $this->deck->method('drawSpecificCard')->willReturnOnConsecutiveCalls(
             new Card('Diamond', '10'),
             new Card('Hearts', '7'),
