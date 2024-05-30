@@ -19,6 +19,9 @@ class PlayerTest extends TestCase
         $this->player = new Player('John', 100);
     }
 
+    /**
+     * Testar att få spelarens namn.
+     */
     public function testGetName(): void
     {
         $this->assertEquals('John', $this->player->getName());
