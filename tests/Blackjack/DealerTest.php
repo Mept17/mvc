@@ -29,6 +29,9 @@ class DealerTest extends TestCase
         $this->assertCount(1, $this->dealer->getCards());
     }
 
+    /**
+     * Testar att hämta dealerns kort.
+     */
     public function testGetCards(): void
     {
         $card1 = new CardGraphic('Hearts', '2');
@@ -41,11 +44,17 @@ class DealerTest extends TestCase
         $this->assertSame($card2, $cards[1]);
     }
 
+    /**
+     * Testar att få poäng när dealern inte har några kort.
+     */
     public function testGetPointsNoCards(): void
     {
         $this->assertEquals(0, $this->dealer->getPoints());
     }
 
+    /**
+     * Testar att få poäng när dealern har kort med nummer.
+     */
     public function testGetPointsWithNumericCards(): void
     {
         $this->dealer->addCard(new CardGraphic('Hearts', '2'));
@@ -53,6 +62,9 @@ class DealerTest extends TestCase
         $this->assertEquals(5, $this->dealer->getPoints());
     }
 
+    /**
+     * Testar att få poäng när dealern har kort utan nummer.
+     */
     public function testGetPointsWithNonNumericCards(): void
     {
         $this->dealer->addCard(new CardGraphic('Hearts', 'King'));
