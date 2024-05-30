@@ -24,3 +24,6 @@ Följ dessa steg för att klona och köra projektet lokalt:
 
 3. Starta projektet lokalt genom att köra:
 - php -S localhost:8888 -t public  
+
+4. Att starta via studentservern:
+- http://www.student.bth.se/~mept23/dbwebb-kurser/mvc/me/report/public

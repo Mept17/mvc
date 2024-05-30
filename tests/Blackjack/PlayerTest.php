@@ -35,12 +35,18 @@ class PlayerTest extends TestCase
         $this->assertEquals(0, $this->player->getScore());
     }
 
+    /**
+     * Testar att lägga till poäng till spelaren.
+     */
     public function testAddToScore(): void
     {
         $this->player->addToScore(5);
         $this->assertEquals(5, $this->player->getScore());
     }
 
+    /**
+     * Testar att återställa spelarens poäng.
+     */
     public function testResetScore(): void
     {
         $this->player->addToScore(5);
@@ -48,6 +54,9 @@ class PlayerTest extends TestCase
         $this->assertEquals(0, $this->player->getScore());
     }
 
+    /**
+     * Testar att lägga till ett kort till spelaren.
+     */
     public function testAddCard(): void
     {
         $card = new CardGraphic('Hearts', '2');
@@ -55,6 +64,9 @@ class PlayerTest extends TestCase
         $this->assertCount(1, $this->player->getCards());
     }
 
+    /**
+     * Testar att hämta spelarens kort.
+     */
     public function testGetCards(): void
     {
         $card1 = new CardGraphic('Hearts', '2');
@@ -67,22 +79,34 @@ class PlayerTest extends TestCase
         $this->assertSame($card2, $cards[1]);
     }
 
+    /**
+     * Testar att få spelarens pengar.
+     */
     public function testGetMoney(): void
     {
         $this->assertEquals(100, $this->player->getMoney());
     }
 
+    /**
+     * Testar att justera spelarens pengar.
+     */
     public function testAdjustMoney(): void
     {
         $this->player->adjustMoney(50);
         $this->assertEquals(150, $this->player->getMoney());
     }
 
+    /**
+     * Testar om spelaren är "bust".
+     */
     public function testIsBust(): void
     {
         $this->assertFalse($this->player->isBust());
     }
 
+    /**
+     * Testar att sätta spelarens "bust" status.
+     */
     public function testSetBust(): void
     {
         $this->player->setBust(true);

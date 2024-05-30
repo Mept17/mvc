@@ -28,10 +28,6 @@ nav ul {
     padding: 10px;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
 nav ul li a {
     text-decoration: none;
     font-weight: bold;
@@ -116,12 +112,8 @@ ul {
 
 ul li {
     padding: 20px;
-    background: #f9f9f9;
-    margin: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1.5em;
-    color: #000;  /* Ändra textfärgen till svart */
 }
 
 .player-name-input {
@@ -129,7 +121,7 @@ ul li {
 }
 
 a {
-    color: #333;
+    color: #397d28;
     text-decoration: none;
     font-weight: bold;
 }
@@ -190,6 +182,6 @@ hr {
 }
 
 .card.back {
-    background-color: gray; /* eller en annan färg för att representera baksidan av kortet */
+    background-color: gray;
     color: gray;
 }
