@@ -4,15 +4,24 @@ use PHPUnit\Framework\TestCase;
 use App\BlackJack\Dealer;
 use App\Card\CardGraphic;
 
+/**
+ * Enhetstester för klassen Dealer.
+ */
 class DealerTest extends TestCase
 {
     private Dealer $dealer;
 
+    /**
+     * Ställer in miljön före varje test.
+     */
     protected function setUp(): void
     {
         $this->dealer = new Dealer();
     }
 
+    /**
+     * Testar att lägga till ett kort till dealern.
+     */
     public function testAddCard(): void
     {
         $card = new CardGraphic('Hearts', '2');
