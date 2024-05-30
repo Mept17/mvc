@@ -27,6 +27,9 @@ class PlayerTest extends TestCase
         $this->assertEquals('John', $this->player->getName());
     }
 
+    /**
+     * Testar att få spelarens poäng.
+     */
     public function testGetScore(): void
     {
         $this->assertEquals(0, $this->player->getScore());
