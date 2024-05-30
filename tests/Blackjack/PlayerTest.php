@@ -4,10 +4,16 @@ use PHPUnit\Framework\TestCase;
 use App\BlackJack\Player;
 use App\Card\CardGraphic;
 
+/**
+ * Enhetstester för klassen Player.
+ */
 class PlayerTest extends TestCase
 {
     private Player $player;
 
+    /**
+     * Ställer in miljön före varje test.
+     */
     protected function setUp(): void
     {
         $this->player = new Player('John', 100);
